@@ -117,3 +117,12 @@ Things you may want to cover:
 - belongs_to :item
 
 
+## brandテーブル
+|Column|Type|Option|
+|------|----|------|
+|brand-name|string|
+
+### Association
+- has_many :items
+
+
