@@ -86,3 +86,22 @@ Things you may want to cover:
 - belongs_to :user
 
 
+## itemsテーブル
+|Column|Type|Option|
+|------|----|------|
+|users_id|integer|foreign-key :true, null :false|
+|item_name|string|null :false|
+|item_explain|text|null :false|
+|item_status|string|null :false|
+|shipping_fee|string|null :false|
+|shipping_area|string|null :false|
+|shipping_days|string|null :false|
+|price|integer|null :false|
+|brand_id|integer|foreign-key :true|
+
+### Association
+- belongs_to :user
+- belongs_to :brand
+- has_many :item_photos
+- has_many :categories, through: :items_catigories
+- has_many :items_categories
