@@ -105,3 +105,15 @@ Things you may want to cover:
 - has_many :item_photos
 - has_many :categories, through: :items_catigories
 - has_many :items_categories
+
+
+## item_photosテーブル
+|Column|Type|Option|
+|------|----|------|
+|items_id|integer|foreign-key :true|
+|image|string|null :false|
+
+### Association
+- belongs_to :item
+
+
