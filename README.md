@@ -120,9 +120,28 @@ Things you may want to cover:
 ## brandテーブル
 |Column|Type|Option|
 |------|----|------|
-|brand-name|string|
+|brand_name|string|
 
 ### Association
 - has_many :items
 
 
+## categoriesテーブル
+|Column|Type|Option|
+|------|----|------|
+|category_name|string|
+
+### Association
+- has_many: items, through: :items_categories
+- has_many: items_categories
+
+
+## items_categoriesテーブル
+|Column|Type|Option|
+|------|----|------|
+|items_id|integer|foreign-key :true|
+|categories_id|integer|foreign-key :true|
+
+### Association
+- belongs_to :item
+- belongs_to :category
