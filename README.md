@@ -72,3 +72,17 @@ Things you may want to cover:
 - belongs_to :user
 
 
+## credit_cardsテーブル
+|Column|Type|Option|
+|------|----|------|
+|users_id|integer|foreign-key :true, null :false|
+|card_number|integer|null :false|
+|effective_year|integer|null :false|
+|effective_month|integer|null :false|
+|security_code|integer|null :false|
+|card_on_the_name|string|null :false|
+
+### Association
+- belongs_to :user
+
+
