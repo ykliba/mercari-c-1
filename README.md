@@ -33,7 +33,7 @@ Things you may want to cover:
 |password_verification|null :false|
 
 ### Association
-- belongs_to :personal_righting
+- has_one :personal_righting
 - has_many :delivery_addresses
 - has_many :items
 - has_many :credit_cards
@@ -42,7 +42,7 @@ Things you may want to cover:
 ## personal_rightingsテーブル
 |Column|Type|Option|
 |------|----|------|
-|users_id|integer|foreign-key :true, null :false|
+|users_id|integer|foreign_key :true, null :false|
 |firstname|string|null :false|
 |lastname|string|null :false|
 |firstname_hiragana|string|null :false|
@@ -56,7 +56,7 @@ Things you may want to cover:
 ## delivery_addressesテーブル
 |Column|Type|Option|
 |------|----|------|
-|users_id|integer|foreign-key :true, null :false|
+|users_id|integer|foreign_key :true, null :false|
 |delivery_firstname|string|null :false|
 |delivery_lastname|string|null :false|
 |delivery_firstname_hiragana|string|null :false|
@@ -75,7 +75,7 @@ Things you may want to cover:
 ## credit_cardsテーブル
 |Column|Type|Option|
 |------|----|------|
-|users_id|integer|foreign-key :true, null :false|
+|users_id|integer|foreign_key :true, null :false|
 |card_number|integer|null :false|
 |effective_year|integer|null :false|
 |effective_month|integer|null :false|
@@ -89,28 +89,27 @@ Things you may want to cover:
 ## itemsテーブル
 |Column|Type|Option|
 |------|----|------|
-|users_id|integer|foreign-key :true, null :false|
-|item_name|string|null :false|
-|item_explain|text|null :false|
-|item_status|string|null :false|
+|users_id|integer|foreign_key :true, null :false|
+|name|string|null :false|
+|explain|text|null :false|
+|status|string|null :false|
 |shipping_fee|string|null :false|
 |shipping_area|string|null :false|
 |shipping_days|string|null :false|
 |price|integer|null :false|
-|brand_id|integer|foreign-key :true|
+|brand_id|integer|foreign_key :true|
 
 ### Association
 - belongs_to :user
 - belongs_to :brand
 - has_many :item_photos
-- has_many :categories, through: :items_catigories
-- has_many :items_categories
+- has_many :category
 
 
 ## item_photosテーブル
 |Column|Type|Option|
 |------|----|------|
-|items_id|integer|foreign-key :true|
+|items_id|integer|foreign_key :true|
 |image|string|null :false|
 
 ### Association
@@ -120,7 +119,7 @@ Things you may want to cover:
 ## brandテーブル
 |Column|Type|Option|
 |------|----|------|
-|brand_name|string|
+|name|string|
 
 ### Association
 - has_many :items
@@ -129,19 +128,10 @@ Things you may want to cover:
 ## categoriesテーブル
 |Column|Type|Option|
 |------|----|------|
-|category_name|string|
+|name|string|
+|ancestry|strig|
 
 ### Association
-- has_many: items, through: :items_categories
-- has_many: items_categories
+- has_many: items
 
 
-## items_categoriesテーブル
-|Column|Type|Option|
-|------|----|------|
-|items_id|integer|foreign-key :true|
-|categories_id|integer|foreign-key :true|
-
-### Association
-- belongs_to :item
-- belongs_to :category
