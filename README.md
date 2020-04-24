@@ -33,10 +33,10 @@ Things you may want to cover:
 |password_verification|null :false|
 
 ### Association
-- has_one :personal_righting
-- has_many :delivery_addresses
-- has_many :items
-- has_many :credit_cards
+- has_one :personal_righting, dependent: :destroy
+- has_many :delivery_addresses, dependent: :destroy
+- has_many :items, dependent: :destroy
+- has_many :credit_cards, dependent: :destroy
 
 
 ## personal_rightingsテーブル
@@ -102,8 +102,8 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - belongs_to :brand
-- has_many :item_photos
-- has_many :category
+- has_many :item_photos, dependent: :destroy
+- has_many :categories, dependent: :destroy
 
 
 ## item_photosテーブル
@@ -129,9 +129,7 @@ Things you may want to cover:
 |Column|Type|Option|
 |------|----|------|
 |name|string|
-|ancestry|strig|
+|ancestry|string|
 
 ### Association
 - has_many: items
-
-
