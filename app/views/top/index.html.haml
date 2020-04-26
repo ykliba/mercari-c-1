@@ -7,7 +7,7 @@
         .search
           = form_with do |f|
             .search-box
-              = f.text_field :keyword, class: "search-box__input"
+              = f.text_field :name, class: "search-box__input"
               .search-box__submit
                 = f.label :image do
                   = image_submit_tag("icon-search 1.png", class: "search-box__submit__icon")

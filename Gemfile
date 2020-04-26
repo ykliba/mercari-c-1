@@ -74,3 +74,5 @@ group :production do
   gem 'unicorn'
 end
 gem "ancestry"
+gem 'carrierwave'
+gem 'mini_magick'

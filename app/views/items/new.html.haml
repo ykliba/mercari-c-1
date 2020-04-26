@@ -1,0 +1,146 @@
+.body-new
+  .header
+    .header-logo
+      = link_to image_tag("logo.png", class: "logo"), root_path
+  
+  .main
+    .images-section
+      .images-main
+        .images-box
+          .images-box__header
+            .images-box__header__title
+              出品画像
+            .images-box__header__attention
+              必須
+          .images-box__text
+            最大10枚までアップロードできます
+          .images-box__upload
+            .images-box__upload__icon
+              = image_tag("icon_camera.png", class: "camera")
+            .images-box__upload__messages
+              %p
+                ドラッグアンドドロップ
+              %p
+                またはクリックしてファイルをアップロード
+          .images-box__message
+            画像がありません
+    
+    .items-section
+      .items-main
+        .items-box
+          .items-box__name
+            .items-box__name__title
+              商品名
+            .items-box__name__attention
+              必須
+          .items-box__form
+            = form_with model: @item, local: true do |f|
+              = f.text_field :name, placeholder: "40文字まで", class: "input"
+          .items-box__message
+            入力してください
+          .items-box__explain
+            .items-box__explain__title
+              商品の説明
+            .items-box__explain__attention
+              必須
+          .items-box__expform
+            = form_with model: @item, lical: true do |f|
+              = f.text_area :explain, placeholder: "商品の説明 (必須 1,000字以内)", class: "expinput"
+          .items-box__counter
+          .items-box__message2
+            入力してください
+            
+    .details-section
+      .details-main
+        .details-box
+          .details-box__maintitle
+            商品の詳細
+          .details-box__cat
+            .details-box__cat__title
+              カテゴリー
+            .details-box__cat__attention
+              必須
+          .details-box__cat-input
+          .details-box__message
+            選択してください
+          .details-box__brand
+            .details-box__brand__title
+              ブランド
+            .details-box__brand__attention
+              任意
+          .details-box__brand-input
+          .details-box__status
+            .details-box__status__title
+              商品の状態
+            .details-box__status__attention
+              必須
+          .details-box__status-input
+          .details-box__message
+            選択してください
+            
+    .shipping-section
+      .shipping-main
+        .shipping-box
+          .shipping-box__maintitle
+            配送について
+          .shipping-box__fee
+            .shipping-box__fee__title
+              配送料の負担
+            .shipping-box__fee__attention
+              必須
+          .shipping-box__fee-input
+          .shipping-box__message
+            選択してください
+          .shipping-box__area
+            .shipping-box__area__title
+              発送元の地域
+            .shipping-box__area__attention
+              必須
+          .shipping-box__area-input
+          .shipping-box__message
+            選択してください
+          .shipping-box__days
+            .shipping-box__days__title
+              発送までの日数
+            .shipping-box__days__attention
+              必須
+          .shipping-box__days-input
+          .shipping-box__message
+            選択してください
+
+    .price-section
+      .price-main
+        .price-box   
+          .price-box__maintitle
+            価格 (¥300〜9,999,999)
+          .price-box__set
+            .price-box__set__title
+              販売価格
+            .price-box__set__attention
+              必須
+            .price-box__set__mark
+              ¥
+            .price-box__set__price-input
+          .price-box__message
+            300以上9999999以下で入力してください
+          .price-box__fee-box
+            .price-box__fee-box__text
+              販売手数料（10%）
+            .price-box__fee-box__number
+            .price-box__fee-box__line
+          .price-box__profit-box
+            .price-box__profit-box__text
+              販売利益
+            .price-box__profit-box__number
+            .price-box__profit-box__line
+    
+    .btn-section
+      .btn-main
+        .btn-box
+          .btn-box__sell
+            出品する
+          .btn-box__back
+            = link_to root_path do
+              もどる
+  
+  .footer
