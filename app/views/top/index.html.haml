@@ -129,9 +129,56 @@
             .item__detail
               お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
     .pickup-1
-      
+      .pickup-1__head
+        ピックアップカテゴリー
+      .pickup-1__topic
+        =link_to "#", class: "jumpto-listing" do
+          新規投稿商品
+        .item-boxes
+          - @items.each do |item|
+            =link_to "#", class: "item" do
+              .photo
+                - item.item_photos.each do |item_photo|
+                  = image_tag item_photo.image
+              .supplement
+                .information
+                  .information__item-name
+                    = item.name
+                  .information__item-price
+                    = "#{item.price}円"
+                  .information__price-option
+                    (税込)
+                .like-function
+                  .like-btn
+                    = icon('fas', 'star')
+                  .like-count
+                    0
+          
     .pickup-2
-      
+      .pickup-2__head
+        ピックアップブランド
+      .pickup-2__topic
+        =link_to "#", class: "jumpto-archive" do
+          アーカイバ
+        .item-boxes
+          - @items.each do |item|
+            =link_to "#", class: "item" do
+              .photo
+                - item.item_photos.each do |item_photo|
+                  = image_tag item_photo.image
+              .supplement
+                .information
+                  .information__item-name
+                    = item.name
+                  .information__item-price
+                    = "#{item.price}円"
+                  .information__price-option
+                    (税込)
+                .like-function
+                  .like-btn
+                    = icon('fas', 'star')
+                  .like-count
+                    0
     .appbanner
       .inner
         .inner__title
