@@ -1,3 +1,4 @@
 class Item < ApplicationRecord
-  mount_uploader :image, ImageUploader
+  has_many :item_photos, dependent: :destroy
+  accepts_nested_attributes_for :item_photos, allow_destroy: true
 end

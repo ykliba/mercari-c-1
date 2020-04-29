@@ -59,34 +59,27 @@
             margin-top: 16px;
             font-size: 14px;
           }
-          &__upload {
+          #upload {
             width: 620px;
             height: 150px;
             border: dashed 1px;
             margin-top: 16px;
             background-color: gainsboro;
             cursor: pointer;
-            &__icon {
-              width: 20px;
-              height: 18px;
-              margin: 0 auto;
-              margin-bottom: 8px;
-              margin-top: 47px;
-              .camera {
-                width: 20px;
-                height: 18px;
-                
-                
-                a {
-                  filter: saturate(100%);
-                }
-                
+            .input_area {
+              width: 620px;
+              height: 150px;
+              .icon {
+                font-size: 1.3rem;
+                margin-left: 300px;
+                margin-top: 45px;
+                margin-bottom: 10px;
               }
-            }
-            &__messages {
-              font-size: 12px;
-              text-align: center;
-              line-height: 1.4em;
+              .messages {
+                font-size: 12px;
+                text-align: center;
+                line-height: 1.4em;
+              }
             }
           }
           &__message {
@@ -97,6 +90,7 @@
         }
       }
     } 
+    
     .items-section {
       height: 486px;
       .items-main {
