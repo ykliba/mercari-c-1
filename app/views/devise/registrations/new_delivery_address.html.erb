@@ -1,0 +1,61 @@
+<h2>商品送付先住所登録</h2>
+
+<%= form_for @delivery_address do |f| %>
+  <%= render "devise/shared/error_messages", resource: @delivery_address %>
+
+  <div class="field">
+    <%= f.label :delivery_firstname %><br />
+    <%= f.text_field :delivery_firstname %>
+  </div>
+
+  <div class="field">
+    <%= f.label :delivery_lastname %><br />
+    <%= f.text_field :delivery_lastname %>
+  </div>
+
+  <div class="field">
+    <%= f.label :delivery_firstname_hiragana %><br />
+    <%= f.text_field :delivery_firstname_hiragana %>
+  </div>
+
+  <div class="field">
+    <%= f.label :delivery_lastname_hiragana %><br />
+    <%= f.text_field :delivery_lastname_hiragana %>
+  </div>
+
+  <div class="field">
+    <%= f.label :postal_code %><br />
+    <%= f.text_field :postal_code %>
+  </div>
+
+  <div class="field">
+    <%= f.label :prefecture %><br />
+    <%= f.text_field :prefecture %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :room_number %><br />
+    <%= f.text_field :room_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone_number %><br />
+    <%= f.text_field :phone_number %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
