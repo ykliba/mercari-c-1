@@ -399,51 +399,5 @@ body {
         }
       }
     }
-    
-    
-    .appbanner {
-      width: 1440;
-      height: 400px;
-      background-image: url("bg-appBanner-pict.jpg");
-      background-size: cover;
-      position: relative;
-      background-position: center;
-      .inner {
-        width: 1360px;
-        height: 160px;
-        position: absolute;
-        margin: 120px 40px;
-        text-align: center;
-        color: white;
-        text-shadow: 0 0 5px rgba(0,0,0,0.4);
-        &__title {
-          font-size: 24px;
-          font-weight: bold;
-        }
-        &__text {
-          font-size: 35px;
-          text-shadow: 0 0 5px rgba(0,0,0,0.4);
-        }
-        &__icon {
-          display: flex;
-          width: 1360px;
-          margin-top: 17px;
-          .icon-a {
-            width: 180px;
-            height: 54px;
-            margin-left: 488px;
-            margin-right: 12px;
-            cursor: pointer;
-          }
-          
-          .icon-g {
-            width: 180px;
-            height: 54px;
-            margin-right: 500px;
-            cursor: pointer;
-          }
-        }
-      }
-    }
   } 
 }
