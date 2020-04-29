@@ -69,7 +69,9 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml-rails'
 gem 'sprockets', '3.7.2'
-
+gem 'font-awesome-sass'
+gem 'carrierwave'
+gem 'mini_magick'
 group :production do
   gem 'unicorn'
 end
