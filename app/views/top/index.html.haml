@@ -7,7 +7,7 @@
         .search
           = form_with do |f|
             .search-box
-              = f.text_field :keyword, class: "search-box__input"
+              = f.text_field :name, class: "search-box__input"
               .search-box__submit
                 = f.label :image do
                   = image_submit_tag("icon-search 1.png", class: "search-box__submit__icon")
@@ -194,7 +194,7 @@
       .p-btn__text
         出品する
       .p-btn__icon
-        = link_to image_tag("icon_camera.png", class: "tag") 
+        = link_to image_tag("icon_camera.png", class: "tag"), new_item_path
 
     
 
