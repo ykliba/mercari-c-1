@@ -76,3 +76,4 @@ end
 gem "ancestry"
 
 gem 'devise'
+gem 'haml-rails'
