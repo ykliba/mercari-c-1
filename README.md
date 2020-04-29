@@ -42,7 +42,7 @@ Things you may want to cover:
 ## personal_rightingsテーブル
 |Column|Type|Option|
 |------|----|------|
-|users_id|integer|foreign_key :true, null :false|
+|user_id|integer|foreign_key :true, null :false|
 |firstname|string|null :false|
 |lastname|string|null :false|
 |firstname_hiragana|string|null :false|
@@ -56,7 +56,7 @@ Things you may want to cover:
 ## delivery_addressesテーブル
 |Column|Type|Option|
 |------|----|------|
-|users_id|integer|foreign_key :true, null :false|
+|user_id|integer|foreign_key :true, null :false|
 |delivery_firstname|string|null :false|
 |delivery_lastname|string|null :false|
 |delivery_firstname_hiragana|string|null :false|
@@ -75,7 +75,7 @@ Things you may want to cover:
 ## credit_cardsテーブル
 |Column|Type|Option|
 |------|----|------|
-|users_id|integer|foreign_key :true, null :false|
+|user_id|integer|foreign_key :true, null :false|
 |card_number|integer|null :false|
 |effective_year|integer|null :false|
 |effective_month|integer|null :false|
@@ -89,7 +89,7 @@ Things you may want to cover:
 ## itemsテーブル
 |Column|Type|Option|
 |------|----|------|
-|users_id|integer|foreign_key :true, null :false|
+|user_id|integer|foreign_key :true, null :false|
 |name|string|null :false|
 |explain|text|null :false|
 |status|string|null :false|
@@ -109,7 +109,7 @@ Things you may want to cover:
 ## item_photosテーブル
 |Column|Type|Option|
 |------|----|------|
-|items_id|integer|foreign_key :true|
+|item_id|integer|foreign_key :true|
 |image|string|null :false|
 
 ### Association
