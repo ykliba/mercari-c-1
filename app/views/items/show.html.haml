@@ -1,6 +1,99 @@
 %body
   = render "header"
 
+
   .main-show
-  
+    .item-information
+      .item-information__name
+        ここに商品名が入ります
+      %ul
+        %li.heading-photo
+          写真１
+        %ul.photo-list
+          %li.photo
+            写真１
+          %li.photo
+            写真２
+          %li.photo
+            写真３
+      
+      .item-information__price
+        OOOO円
+      .item-information__tax-include
+        （税込）送料込み
+      .item-information__explain
+        ここに商品説明が入ります長い文章になるので改行が必要ですここに商品説明が入ります長い文章になるので改行が必要ですここに商品説明が入ります長い文章になるので改行が必要ですここに商品説明が入ります長い文章になるので改行が必要ですここに商品説明が入ります長い文章になるので改行が必要ですここに商品説明が入ります長い文章になるので改行が必要ですここに商品説明が入ります
+
+      %table.item-information__various-info
+        %tr
+          %th 出品者
+          %td 出品者の名前が入ります
+        %tr
+          %th カテゴリー
+          %td
+            = link_to "カテゴリー情報が入ります。複数行＆リンクになります。カテゴリー情報が入ります。複数行＆リンクになります。", "#", class: "category-link"
+        %tr
+          %th ブランド
+          %td ブランド名が入ります。空欄でもOKです。
+        %tr
+          %th 商品のサイズ
+          %td 商品のサイズが入ります。空欄でもOKです。
+        %tr
+          %th 商品の状態
+          %td 商品の状態が入ります
+        %tr
+          %th 配送料の負担
+          %td （送料込み）とかが入ります
+        %tr
+          %th 発送元の地域
+          %td
+            = link_to "OO県とかが入ります。リンクになります。", "#", class: "shipping-area-link"
+        %tr
+          %th 発送日の目安
+          %td 〜日で発送、とかが入ります
+
+      = link_to root_path, class: "like-btn" do
+        %li.like-btn__icon
+          = icon('fas', 'star')
+        %li.like-btn__text
+          お気に入り
+        %li.like-btn__like-count
+          ０
+      = link_to root_path, class: "report-btn" do
+        %li.report-btn__icon
+          = icon('fas', 'flag-checkered')
+        %li.report-btn__text
+          不適切な商品の通報
+
+    .comment-field
+      %textarea.comment-field__text-field
+      .comment-field__attention-message
+        %p
+          相手のことを考え丁寧なコメントを心がけましょう。
+        %p
+          不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      = link_to root_path, class: "comment-field__submit-btn" do
+        %li.submit-btn__icon
+          = icon('fas', 'comment')
+        %li.submit-btn__text
+          コメントする
+
+    %ul.choose-items
+      = link_to root_path do
+        %ul.before-box
+          %li.before-box__text
+            前の商品
+          %li.before-box__icon
+            = icon('fas', 'chevron-left')
+      = link_to root_path do
+        %ul.after-box
+          %li.after-box__text
+            後ろの商品
+          %li.after-box__icon
+            = icon('fas', 'chevron-right')
+
+    .same-category
+      = link_to root_path, class: "same-category" do
+        カテゴリーをもっと見る、が入ります
+
   = render "footer"

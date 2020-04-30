@@ -1,0 +1,207 @@
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.main-show {
+  background-color: #f8f8f8;
+  width: 1440px;
+  height: 1856px;
+  padding: 40px;
+}
+
+.item-information {
+  background-color:#fff;
+  width: 700px;
+  height: 1362px;
+  padding: 24px 40px 40px;
+  margin: 0 auto;
+  &__name {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .heading-photo {
+    background-color: aqua;
+    width: 560px;
+    height: 346px;
+    margin: 10px auto;
+  }
+  .photo-list {
+      width: 560px;
+      height: 87px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+  }
+  .photo {
+      background-color: coral;
+      width: 140px;
+      height: 87px;
+      margin: 0 5px;
+  }
+
+  &__price {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0 0;
+  }
+  &__tax-include {
+    text-align: center;
+  }
+  &__explain {
+    margin: 30px 0;
+    font-size: 18px;
+  }
+
+  &__various-info {
+    width: 100%;
+    height: 375px;
+    font-size: 14px;
+  }
+  &__various-info th {
+    width: 20%;
+    background-color: #eee;
+    padding: 8px;
+    border: 1px solid #dedede;
+    text-align: center;
+  }
+  &__various-info td {
+    width: 61%;
+    padding: 15px 15px;
+    border: 1px solid #dedede;
+    .category-link {
+      color: #3ccace;
+    }
+    .shipping-area-link {
+      color: #3ccace;
+    }
+  }
+
+  .like-btn {
+    width: 140px;
+    height: 38px;
+    padding: 6px 8px;
+    border-radius: 40px;
+    color: #3CCACE;
+    border: 1px solid #ffb340;
+    display: flex;
+    list-style: none;
+    float: left;
+    margin-top: 30px;
+    &__icon {
+      font-size: 14px;
+      line-height: 24px;
+    }
+    &__text {
+      font-size: 16px;
+      font-weight: 400;
+      margin: 0 4px;
+    }
+    &__like-count {
+      // 現在、何も記述していません
+    }
+  }
+  .report-btn {
+    padding: 6px 10px;
+    border-radius: 4px;
+    color: #333;
+    border: 1px solid #333;
+    text-decoration: none;
+    float: right;
+    margin-top: 30px;
+    &__icon {
+      list-style: none;
+      float: left;
+      font-size: 14px;
+      margin-right: 5px;
+    }
+    &__text {
+      font-size: 14px;
+      list-style: none;
+      float: right;
+      font-weight: 500;
+    }
+  }
+}
+
+.comment-field {
+  background-color:#fff;
+  width: 700px;
+  height: 305px;
+  padding: 24px;
+  margin: 10px auto;
+  &__text-field {
+    width: 652px;
+    height: 104px;
+  }
+  &__attention-message {
+    background-color: #f8f8f8;
+    font-size: 14px;
+    padding: 8px;
+    margin: 10px 0;
+  }
+  &__submit-btn {
+    line-height: 48px;
+    background-color: #3CCACE;
+    color: #fff;
+    width: 60%;
+    height: 50px;
+    font-size: 18px;
+    border-radius: 100px;
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    li.submit-btn__icon {
+      list-style: none;
+      margin-right: 5px;
+    }
+    li.submit-btn__text {
+      list-style: none;
+    }
+  }
+}
+
+.choose-items {
+  width: 700px;
+  height: 24px;
+  margin: 6px auto;
+  display: flex;
+  justify-content: space-between;
+
+  .before-box {
+    color: #3ccace;
+    &__text {
+      float: right;
+      margin: 0 5px;
+    }
+    &__icon {
+      float: left;
+      font-size: 12px;
+      padding-top: 4px;
+    }
+  }
+  .after-box {
+    color: #3ccace;
+    &__text {
+      float: left;
+      margin: 0 5px;
+    }
+    &__icon {
+      float: right;
+      font-size: 12px;
+      padding-top: 4px;
+    }
+  }
+}
+
+.same-category {
+  width: 700px;
+  height: 33px;
+  margin: 24px auto 8px;
+  color: #3ccace;
+  font-size: 22px;
+  font-weight: bold;
+}
