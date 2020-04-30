@@ -4,7 +4,7 @@
 }
 
 .main-show {
-  background-color: #f8f8f8;
+  background-color: $main_background_color;
   width: 1440px;
   height: 1856px;
   padding: 40px;
@@ -73,10 +73,10 @@
     padding: 15px 15px;
     border: 1px solid #dedede;
     .category-link {
-      color: #3ccace;
+      color: $link_font_color;
     }
     .shipping-area-link {
-      color: #3ccace;
+      color: $link_font_color;
     }
   }
 
@@ -85,7 +85,7 @@
     height: 38px;
     padding: 6px 8px;
     border-radius: 40px;
-    color: #3CCACE;
+    color: $link_font_color;
     border: 1px solid #ffb340;
     display: flex;
     list-style: none;
@@ -138,14 +138,14 @@
     height: 104px;
   }
   &__attention-message {
-    background-color: #f8f8f8;
+    background-color: $main_background_color;
     font-size: 14px;
     padding: 8px;
     margin: 10px 0;
   }
   &__submit-btn {
     line-height: 48px;
-    background-color: #3CCACE;
+    background-color: $link_font_color;
     color: #fff;
     width: 60%;
     height: 50px;
@@ -172,7 +172,7 @@
   justify-content: space-between;
 
   .before-box {
-    color: #3ccace;
+    color: $link_font_color;
     &__text {
       float: right;
       margin: 0 5px;
@@ -184,7 +184,7 @@
     }
   }
   .after-box {
-    color: #3ccace;
+    color: $link_font_color;
     &__text {
       float: left;
       margin: 0 5px;
@@ -201,7 +201,7 @@
   width: 700px;
   height: 33px;
   margin: 24px auto 8px;
-  color: #3ccace;
+  color: $link_font_color;
   font-size: 22px;
   font-weight: bold;
 }
