@@ -1,0 +1,46 @@
+%h2 商品送付先住所登録
+= form_for @delivery_address do |f|
+  = render "devise/shared/error_messages", resource: @delivery_address
+  .field
+    = f.label :delivery_firstname
+    %br/
+    = f.text_field :delivery_firstname
+  .field
+    = f.label :delivery_lastname
+    %br/
+    = f.text_field :delivery_lastname
+  .field
+    = f.label :delivery_firstname_hiragana
+    %br/
+    = f.text_field :delivery_firstname_hiragana
+  .field
+    = f.label :delivery_lastname_hiragana
+    %br/
+    = f.text_field :delivery_lastname_hiragana
+  .field
+    = f.label :postal_code
+    %br/
+    = f.text_field :postal_code
+  .field
+    = f.label :prefecture
+    %br/
+    = f.text_field :prefecture
+  .field
+    = f.label :city
+    %br/
+    = f.text_field :city
+  .field
+    = f.label :address
+    %br/
+    = f.text_field :address
+  .field
+    = f.label :room_number
+    %br/
+    = f.text_field :room_number
+  .field
+    = f.label :phone_number
+    %br/
+    = f.text_field :phone_number
+  .actions
+    = f.submit "Sign up"
+= render "devise/shared/links"
