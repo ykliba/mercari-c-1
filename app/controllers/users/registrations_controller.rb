@@ -29,7 +29,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
     @user.build_personal_righting(@personal_righting.attributes)
     session["devise.regist_data"]["personal_righting"] = @personal_righting.attributes
-    binding.pry
     @delivery_address = @user.delivery_addresses.new
     render :new_delivery_address
   end
