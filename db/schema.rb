@@ -62,7 +62,6 @@ ActiveRecord::Schema.define(version: 2020_04_26_064032) do
 
 ActiveRecord::Schema.define(version: 2020_04_26_091241) do
 
-
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
