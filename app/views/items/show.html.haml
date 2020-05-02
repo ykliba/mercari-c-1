@@ -69,18 +69,28 @@
           %td 
             = @item.shipping_days
 
-      = link_to root_path, class: "like-btn" do
-        %li.like-btn__icon
-          = icon('fas', 'star')
-        %li.like-btn__text
-          お気に入り
-        %li.like-btn__like-count
-          ０
-      = link_to root_path, class: "report-btn" do
-        %li.report-btn__icon
-          = icon('fas', 'flag-checkered')
-        %li.report-btn__text
-          不適切な商品の通報
+      .item-information__btn-boxes
+        = link_to root_path, class: "like-btn" do
+          %li.like-btn__icon
+            = icon('fas', 'star')
+          %li.like-btn__text
+            お気に入り
+          %li.like-btn__like-count
+            ０
+        = if user_signed_in?
+          = if current_user.id != @item.user_id
+            = link_to root_path, class: "purchase-btn" do
+              .purchase-btn__text
+                購入へ進む
+        %else
+          = link_to root_path, class: "purchase-btn" do
+            .purchase-btn__btn-text
+              ログインして購入する
+        = link_to root_path, class: "report-btn" do
+          %li.report-btn__icon
+            = icon('fas', 'flag-checkered')
+          %li.report-btn__text
+            不適切な商品の通報
 
     .comment-field
       %textarea.comment-field__text-field

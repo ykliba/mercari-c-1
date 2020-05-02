@@ -103,50 +103,57 @@
       color: $link_font_color;
     }
   }
-
-  .like-btn {
-    width: 140px;
-    height: 38px;
-    padding: 6px 8px;
-    border-radius: 40px;
-    color: $link_font_color;
-    border: 1px solid #ffb340;
+  &__btn-boxes {
+    width: 620px;
+    height: 60px;
     display: flex;
+    justify-content: space-between;
+  }
+  .like-btn {
+    width: 135px;
+    height: 38px;
+    padding: 6px 10px;
+    border-radius: 40px;
+    margin-top: 36px;
+    color: #3CCACE;
+    border: 1px solid #ffb340;
     list-style: none;
-    float: left;
-    margin-top: 30px;
+    display: flex;
     &__icon {
       font-size: 14px;
-      line-height: 24px;
     }
-    &__text {
-      font-size: 16px;
-      font-weight: 400;
-      margin: 0 4px;
-    }
-    &__like-count {
-      // 現在、何も記述していません
+  }
+  .purchase-btn {
+    &__btn-text {
+      background-color: red;
+      width: 280px;
+      height: 60px;
+      border-radius: 40px;
+      color: white;
+      font-size: 24px;
+      text-align: center;
+      line-height: 60px;
+      margin-top: 30px;
     }
   }
   .report-btn {
-    padding: 6px 10px;
+    padding: 5px 9px;
+    width: 166px;
+    height: 35px;
+    display: inline-block;
     border-radius: 4px;
     color: #333;
     border: 1px solid #333;
     text-decoration: none;
-    float: right;
-    margin-top: 30px;
+    list-style: none;
+    display: flex;
+    margin-top: 40px;
     &__icon {
-      list-style: none;
-      float: left;
       font-size: 14px;
       margin-right: 5px;
     }
     &__text {
       font-size: 14px;
-      list-style: none;
-      float: right;
-      font-weight: 500;
     }
   }
 }
@@ -180,7 +187,7 @@
     justify-content: center;
     li.submit-btn__icon {
       list-style: none;
-      margin-right: 5px;
+      margin-right: 4px;
     }
     li.submit-btn__text {
       list-style: none;
