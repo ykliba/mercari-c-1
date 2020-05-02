@@ -28,6 +28,11 @@
     height: 346px;
     margin: 10px auto;
   }
+    .heading-photo > img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
   .photo-list {
       width: 560px;
       height: 87px;
@@ -35,12 +40,12 @@
       display: flex;
       justify-content: center;
   }
-  .photo {
-      background-color: coral;
-      width: 140px;
-      height: 87px;
-      margin: 0 5px;
-  }
+    .photo > img {
+        width: 140px;
+        height: 87px;
+        margin: 0 5px;
+        object-fit: cover;
+    }
 
   &__price {
     font-size: 36px;

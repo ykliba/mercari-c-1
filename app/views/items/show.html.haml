@@ -5,52 +5,62 @@
   .main-show
     .item-information
       .item-information__name
-        ここに商品名が入ります
+        = @item.name
       %ul
         %li.heading-photo
-          写真１
+          = image_tag @item.item_photos.find_by(params[:id]).image
         %ul.photo-list
           %li.photo
-            写真１
-          %li.photo
-            写真２
-          %li.photo
-            写真３
-      
+            - @item.item_photos.each do |photo|
+              = image_tag photo.image
       .item-information__price
-        OOOO円
+        = "#{@item.price}円"
       .item-information__tax-include
-        （税込）送料込み
+        税込み（送料込み）
       .item-information__explain
-        ここに商品説明が入ります長い文章になるので改行が必要ですここに商品説明が入ります長い文章になるので改行が必要ですここに商品説明が入ります長い文章になるので改行が必要ですここに商品説明が入ります長い文章になるので改行が必要ですここに商品説明が入ります長い文章になるので改行が必要ですここに商品説明が入ります長い文章になるので改行が必要ですここに商品説明が入ります
+        = @item.explain
 
       %table.item-information__various-info
         %tr
-          %th 出品者
-          %td 出品者の名前が入ります
+          %th 
+            出品者
+          %td 
+            商品出品機能が完成次第実装
         %tr
-          %th カテゴリー
+          %th 
+            カテゴリー
           %td
-            = link_to "カテゴリー情報が入ります。複数行＆リンクになります。カテゴリー情報が入ります。複数行＆リンクになります。", "#", class: "category-link"
+            = link_to "カテゴリー機能が完成次第実装", "#", class: "category-link"
         %tr
-          %th ブランド
-          %td ブランド名が入ります。空欄でもOKです。
+          %th 
+            ブランド
+          %td 
+            = @item.brand
         %tr
-          %th 商品のサイズ
-          %td 商品のサイズが入ります。空欄でもOKです。
+          %th 
+            商品のサイズ
+          %td 
+            itemモデルにsizeカラムを追加した場合データが入る
         %tr
-          %th 商品の状態
-          %td 商品の状態が入ります
+          %th 
+            商品の状態
+          %td 
+            = @item.status
         %tr
-          %th 配送料の負担
-          %td （送料込み）とかが入ります
+          %th 
+            配送料の負担
+          %td   
+            = @item.shipping_fee
         %tr
-          %th 発送元の地域
+          %th 
+            発送元の地域
           %td
-            = link_to "OO県とかが入ります。リンクになります。", "#", class: "shipping-area-link"
+            = link_to "#{@item.shipping_area}", "#", class: "shipping-area-link"
         %tr
-          %th 発送日の目安
-          %td 〜日で発送、とかが入ります
+          %th 
+            発送日の目安
+          %td 
+            = @item.shipping_days
 
       = link_to root_path, class: "like-btn" do
         %li.like-btn__icon
@@ -94,6 +104,6 @@
 
     .same-category
       = link_to root_path, class: "same-category" do
-        カテゴリーをもっと見る、が入ります
+        同じ親カテゴリを持つ商品の一覧ページへ遷移
 
   = render "footer"

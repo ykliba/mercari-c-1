@@ -110,8 +110,7 @@
           - @items.each do |item|
             =link_to item_path(item.id), class: "item" do
               .photo
-                - item.item_photos.each do |item_photo|
-                  = image_tag item_photo.image
+                = image_tag item.item_photos.find_by(params[:id]).image
               .supplement
                 .information
                   .information__item-name
@@ -136,8 +135,7 @@
           - @items.each do |item|
             =link_to item_path(item.id), class: "item" do
               .photo
-                - item.item_photos.each do |item_photo|
-                  = image_tag item_photo.image
+                = image_tag item.item_photos.find_by(params[:id]).image
               .supplement
                 .information
                   .information__item-name
