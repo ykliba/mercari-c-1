@@ -104,11 +104,11 @@
       .pickup-1__head
         ピックアップカテゴリー
       .pickup-1__topic
-        =link_to "#", class: "jumpto-listing" do
+        = link_to "#", class: "jumpto-listing" do
           新規投稿商品
         .item-boxes
           - @items.each do |item|
-            =link_to item_path(item.id), class: "item" do
+            = link_to item_path(item.id), class: "item" do
               .photo
                 = image_tag item.item_photos.find_by(params[:id]).image
               .supplement

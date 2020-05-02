@@ -6,6 +6,12 @@
     .item-information
       .item-information__name
         = @item.name
+      .item-information__link-box
+        %ul
+          %li
+            = link_to "商品を編集する", "#", class: "edit-btn"
+          %li
+            = link_to "商品を削除する", "#s", class: "delete-btn"
       %ul
         %li.heading-photo
           = image_tag @item.item_photos.find_by(params[:id]).image

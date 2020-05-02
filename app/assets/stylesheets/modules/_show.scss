@@ -21,9 +21,28 @@
     font-weight: bold;
     font-size: 20px;
   }
+  &__link-box {
+    position: absolute;
+    right: 380px;
+    top: 150px;
+    background-color: rgba(240, 201, 128, 0.5);
+    .edit-btn {
+      color: $link-font-color;
+      border: 1px solid black;
+      border-radius: 2px;
+      font-size: 14px;
+      padding: 4px 2px;
+    }
+    .delete-btn {
+      color: $link-font-color;
+      border: 1px solid black;
+      border-radius: 2px;
+      font-size: 14px;
+      padding: 4px 2px;
+    }
+  }
 
   .heading-photo {
-    background-color: aqua;
     width: 560px;
     height: 346px;
     margin: 10px auto;
