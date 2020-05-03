@@ -1,0 +1,126 @@
+%body
+  = render "header"
+
+
+  .main-show
+    .item-information
+      .item-information__name
+        = @item.name
+      = if user_signed_in? && current_user.id == @item.user_id
+        .item-information__link-box
+          %ul
+            %li
+              = link_to "商品を編集する", "#", class: "edit-btn"
+            %li
+              = link_to "商品を削除する", "#s", class: "delete-btn"
+      %ul
+        %li.heading-photo
+          = image_tag @item.item_photos.find_by(params[:id]).image
+        %ul.photo-list
+          %li.photo
+            - @item.item_photos.each do |photo|
+              = image_tag photo.image
+      .item-information__price
+        = "#{@item.price}円"
+      .item-information__tax-include
+        税込み（送料込み）
+      .item-information__explain
+        = @item.explain
+
+      %table.item-information__various-info
+        %tr
+          %th 
+            出品者
+          %td 
+            商品出品機能が完成次第実装
+        %tr
+          %th 
+            カテゴリー
+          %td
+            = link_to "カテゴリー機能が完成次第実装", "#", class: "category-link"
+        %tr
+          %th 
+            ブランド
+          %td 
+            = @item.brand
+        %tr
+          %th 
+            商品のサイズ
+          %td 
+            itemモデルにsizeカラムを追加した場合データが入る
+        %tr
+          %th 
+            商品の状態
+          %td 
+            = @item.status
+        %tr
+          %th 
+            配送料の負担
+          %td   
+            = @item.shipping_fee
+        %tr
+          %th 
+            発送元の地域
+          %td
+            = link_to "#{@item.shipping_area}", "#", class: "shipping-area-link"
+        %tr
+          %th 
+            発送日の目安
+          %td 
+            = @item.shipping_days
+
+      .item-information__btn-boxes
+        = link_to root_path, class: "like-btn" do
+          %li.like-btn__icon
+            = icon('fas', 'star')
+          %li.like-btn__text
+            お気に入り
+          %li.like-btn__like-count
+            ０
+        = if user_signed_in?
+          = if current_user.id != @item.user_id
+            = link_to root_path, class: "purchase-btn" do
+              .purchase-btn__text
+                購入へ進む
+        %else
+          = link_to root_path, class: "purchase-btn" do
+            .purchase-btn__btn-text
+              ログインして購入する
+        = link_to root_path, class: "report-btn" do
+          %li.report-btn__icon
+            = icon('fas', 'flag-checkered')
+          %li.report-btn__text
+            不適切な商品の通報
+
+    .comment-field
+      %textarea.comment-field__text-field
+      .comment-field__attention-message
+        %p
+          相手のことを考え丁寧なコメントを心がけましょう。
+        %p
+          不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      = link_to root_path, class: "comment-field__submit-btn" do
+        %li.submit-btn__icon
+          = icon('fas', 'comment')
+        %li.submit-btn__text
+          コメントする
+
+    %ul.choose-items
+      = link_to root_path do
+        %ul.before-box
+          %li.before-box__text
+            前の商品
+          %li.before-box__icon
+            = icon('fas', 'chevron-left')
+      = link_to root_path do
+        %ul.after-box
+          %li.after-box__text
+            後ろの商品
+          %li.after-box__icon
+            = icon('fas', 'chevron-right')
+
+    .same-category
+      = link_to root_path, class: "same-category" do
+        同じ親カテゴリを持つ商品の一覧ページへ遷移
+
+  = render "footer"

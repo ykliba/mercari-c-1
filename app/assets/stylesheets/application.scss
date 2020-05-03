@@ -1,4 +1,8 @@
 @import "reset";
-@import "modules/top";
+@import "config/colors";
+@import "modules/header";
+@import "modules/footer";
+@import "modules/index";
+@import "modules/show";
 @import "font-awesome-sprockets";
 @import "font-awesome";
