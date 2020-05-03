@@ -1,0 +1,41 @@
+%table.item-information__various-info
+  %tr
+    %th 
+      出品者
+    %td 
+      商品出品機能が完成次第実装
+  %tr
+    %th 
+      カテゴリー
+    %td
+      = link_to "カテゴリー機能が完成次第実装", "#", class: "category-link"
+  %tr
+    %th 
+      ブランド
+    %td 
+      = @item.brand
+  %tr
+    %th 
+      商品のサイズ
+    %td 
+      itemモデルにsizeカラムを追加した場合データが入る
+  %tr
+    %th 
+      商品の状態
+    %td 
+      = @item.status
+  %tr
+    %th 
+      配送料の負担
+    %td   
+      = @item.shipping_fee
+  %tr
+    %th 
+      発送元の地域
+    %td
+      = link_to "#{@item.shipping_area}", "#", class: "shipping-area-link"
+  %tr
+    %th 
+      発送日の目安
+    %td 
+      = @item.shipping_days
