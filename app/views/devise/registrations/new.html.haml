@@ -15,9 +15,6 @@
         = f.email_field :email, autofocus: true, autocomplete: "email"
       .field
         = f.label :password, "パスワード 7文字以上 (必須)", {class: "label"}
-        -# - if @minimum_password_length
-        -#   %em
-        -#     (#{@minimum_password_length} characters minimum)
         %br/
         = f.password_field :password, autocomplete: "new-password"
       .field
@@ -26,4 +23,3 @@
         = f.password_field :password_confirmation, autocomplete: "new-password"
       .actions
         = f.submit "Next", {class: "btn"}
-    -# = render "devise/shared/links"
