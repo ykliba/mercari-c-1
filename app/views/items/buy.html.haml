@@ -3,15 +3,15 @@
 .main-buy
   .simple-information
     .simple-information__image
-      画像１
+      = image_tag @item.item_photos.find_by(params[:id]).image
     .simple-information__form
       .item-name
-        商品名が入ります
+        = @item.name
       .amount
         .amount__shipping-fee
-          配送料が入ります
+          = @item.shipping_fee
         .amount__price
-          値段が入ります
+          = "#{@item.price}円"
   .buy-form
     = render "detail-table"
     .payment
@@ -19,17 +19,17 @@
         .text
           お支払い方法
         .credit-card
-          クレジットカード情報が入ります
+          商品購入機能にて実装
       .payment__price
         .text
           お支払い金額
         .price
-          値段が入ります
+          = "#{@item.price}円(税込)"
     .shipping-area
       .text
-        配送料
+        配送先
       .value
-        配送先が入ります
+        ユーザー情報の実装完了次第実装
     = link_to "#", class: "purchase-btn" do
       .purchase-btn__text
         購入する

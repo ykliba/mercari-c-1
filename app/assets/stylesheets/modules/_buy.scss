@@ -26,7 +26,6 @@
   &__image {
     width: 200px;
     height: 200px;
-    background-color: orchid;
   }
   &__form {
     width: 580px;
@@ -42,11 +41,14 @@
       justify-content: flex-end;
       font-size: 18px;
       &__shipping-fee {
-        background-color: $link-font-color;
         margin-right: 20px;
       }
     }
-
+  .simple-information__image > img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
 }
 
 .payment {
