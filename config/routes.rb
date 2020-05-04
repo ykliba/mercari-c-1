@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     # post 'delivery_addresses', to: 'users/registrations#new_delivery_address'
   end
   root 'items#index'
-  resources :items, only: :show
-
+  resources :items, only: :show do
+    member do
+      get "buy"
+    end
+  end
 end
