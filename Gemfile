@@ -78,6 +78,5 @@ group :production do
   gem 'unicorn'
 end
 gem "ancestry"
+gem "devise"
 
-gem 'devise'
-gem 'haml-rails'

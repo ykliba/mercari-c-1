@@ -1,0 +1,238 @@
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.main-show {
+  background-color: $main_background_color;
+  width: 1440px;
+  height: 1856px;
+  padding: 40px;
+}
+
+.item-information {
+  background-color:#fff;
+  width: 700px;
+  height: 1362px;
+  padding: 24px 40px 40px;
+  margin: 0 auto;
+  &__name {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  &__link-box {
+    position: absolute;
+    right: 380px;
+    top: 150px;
+    background-color: rgba(240, 201, 128, 0.5);
+    .edit-btn {
+      color: $link-font-color;
+      border: 1px solid black;
+      border-radius: 2px;
+      font-size: 14px;
+      padding: 4px 2px;
+    }
+    .delete-btn {
+      color: $link-font-color;
+      border: 1px solid black;
+      border-radius: 2px;
+      font-size: 14px;
+      padding: 4px 2px;
+    }
+  }
+
+  .heading-photo {
+    width: 560px;
+    height: 346px;
+    margin: 10px auto;
+  }
+    .heading-photo > img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  .photo-list {
+      width: 560px;
+      height: 87px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+  }
+    .photo > img {
+        width: 140px;
+        height: 87px;
+        margin: 0 5px;
+        object-fit: cover;
+    }
+
+  &__price {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0 0;
+  }
+  &__tax-include {
+    text-align: center;
+  }
+  &__explain {
+    margin: 30px 0;
+    font-size: 18px;
+  }
+
+  &__various-info {
+    width: 100%;
+    height: 375px;
+    font-size: 14px;
+  }
+  &__various-info th {
+    width: 20%;
+    background-color: #eee;
+    padding: 8px;
+    border: 1px solid #dedede;
+    text-align: center;
+  }
+  &__various-info td {
+    width: 61%;
+    padding: 15px 15px;
+    border: 1px solid #dedede;
+    .category-link {
+      color: $link_font_color;
+    }
+    .shipping-area-link {
+      color: $link_font_color;
+    }
+  }
+  &__btn-boxes {
+    width: 620px;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .like-btn {
+    width: 135px;
+    height: 38px;
+    padding: 6px 10px;
+    border-radius: 40px;
+    margin-top: 36px;
+    color: #3CCACE;
+    border: 1px solid #ffb340;
+    list-style: none;
+    display: flex;
+    &__icon {
+      font-size: 14px;
+    }
+  }
+  .purchase-btn {
+    &__btn-text {
+      background-color: red;
+      width: 280px;
+      height: 60px;
+      border-radius: 40px;
+      color: white;
+      font-size: 24px;
+      text-align: center;
+      line-height: 60px;
+      margin-top: 30px;
+    }
+  }
+  .report-btn {
+    padding: 5px 9px;
+    width: 166px;
+    height: 35px;
+    display: inline-block;
+    border-radius: 4px;
+    color: #333;
+    border: 1px solid #333;
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    margin-top: 40px;
+    &__icon {
+      font-size: 14px;
+      margin-right: 5px;
+    }
+    &__text {
+      font-size: 14px;
+    }
+  }
+}
+
+.comment-field {
+  background-color:#fff;
+  width: 700px;
+  height: 305px;
+  padding: 24px;
+  margin: 10px auto;
+  &__text-field {
+    width: 652px;
+    height: 104px;
+  }
+  &__attention-message {
+    background-color: $main_background_color;
+    font-size: 14px;
+    padding: 8px;
+    margin: 10px 0;
+  }
+  &__submit-btn {
+    line-height: 48px;
+    background-color: $link_font_color;
+    color: #fff;
+    width: 60%;
+    height: 50px;
+    font-size: 18px;
+    border-radius: 100px;
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    li.submit-btn__icon {
+      list-style: none;
+      margin-right: 4px;
+    }
+    li.submit-btn__text {
+      list-style: none;
+    }
+  }
+}
+
+.choose-items {
+  width: 700px;
+  height: 24px;
+  margin: 6px auto;
+  display: flex;
+  justify-content: space-between;
+
+  .before-box {
+    color: $link_font_color;
+    &__text {
+      float: right;
+      margin: 0 5px;
+    }
+    &__icon {
+      float: left;
+      font-size: 12px;
+      padding-top: 4px;
+    }
+  }
+  .after-box {
+    color: $link_font_color;
+    &__text {
+      float: left;
+      margin: 0 5px;
+    }
+    &__icon {
+      float: right;
+      font-size: 12px;
+      padding-top: 4px;
+    }
+  }
+}
+
+.same-category {
+  width: 700px;
+  height: 33px;
+  margin: 24px auto 8px;
+  color: $link_font_color;
+  font-size: 22px;
+  font-weight: bold;
+}

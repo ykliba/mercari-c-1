@@ -1,37 +1,5 @@
 %body
-  %header
-    .header-inner
-      .mainheader
-        .logo-box
-          = link_to image_tag("logo.png",class: "logo")
-        .search
-          = form_with do |f|
-            .search-box
-              = f.text_field :keyword, class: "search-box__input"
-              .search-box__submit
-                = f.label :image do
-                  = image_submit_tag("icon-search 1.png", class: "search-box__submit__icon")
-            
-              
-      .nav
-        .list-left
-          .list-left__category
-            = link_to do
-              カテゴリー
-          .list-left__brand
-            = link_to do
-              ブランド
-        .list-right
-          - if user_signed_in?
-            .list-right__mypage
-              = link_to "マイページ", "#"
-            .list-right__logout
-              = link_to "ログアウト", destroy_user_session_path, method: :delete
-          - else
-            .list-right__login
-              = link_to "新規登録", new_user_registration_path
-            .list-right__signup
-              = link_to "ログイン", new_user_session_path
+  = render "header"
 
   .main 
     .main-visual
@@ -136,14 +104,13 @@
       .pickup-1__head
         ピックアップカテゴリー
       .pickup-1__topic
-        =link_to "#", class: "jumpto-listing" do
+        = link_to "#", class: "jumpto-listing" do
           新規投稿商品
         .item-boxes
           - @items.each do |item|
-            =link_to "#", class: "item" do
+            = link_to item_path(item.id), class: "item" do
               .photo
-                - item.item_photos.each do |item_photo|
-                  = image_tag item_photo.image
+                = image_tag item.item_photos.find_by(params[:id]).image
               .supplement
                 .information
                   .information__item-name
@@ -166,10 +133,9 @@
           アーカイバ
         .item-boxes
           - @items.each do |item|
-            =link_to "#", class: "item" do
+            =link_to item_path(item.id), class: "item" do
               .photo
-                - item.item_photos.each do |item_photo|
-                  = image_tag item_photo.image
+                = image_tag item.item_photos.find_by(params[:id]).image
               .supplement
                 .information
                   .information__item-name
@@ -183,66 +149,5 @@
                     = icon('fas', 'star')
                   .like-count
                     0
-    .appbanner
-      .inner
-        .inner__title
-          だれでもかんたん、人生を変えるフリマアプリ
-        .inner__text
-          今すぐ無料ダウンロード！
-        .inner__icon
-          = link_to image_tag("kisspng-app-store-apple-download-logo-app-store-5b500d98b7efd5.2471397315319730167534.png", class: "icon-a")
-          = link_to image_tag("get-it-on-google-play-png-get-it-on-google-play-png-519.png", class: "icon-g")
-   
-    %footer
-      %ul.contents
-        %li.content
-          .content__header
-            FURIMAについて
-            %ul
-              %li
-                = link_to do
-                  会社概要（運営会社）
-              %li
-                = link_to do
-                  プライバシーポリシー
-              %li
-                = link_to do
-                  FURIMA利用規約
-              %li
-                = link_to do
-                  ポイントに関する特約
-        %li.content
-          .content__header
-            FURIMAを見る
-          %ul
-            %li
-              = link_to do
-                カテゴリー一覧
-            %li
-              = link_to do
-                ブランド一覧
-        %li.content
-          .content__header
-            ヘルプ＆ガイド
-          %ul
-            %li
-              = link_to do
-                FURIMAガイド
-            %li
-              = link_to do
-                FURIMAロゴ利用ガイドライン
-            %li
-              = link_to do
-                お知らせ
-
-      .footer-logo
-        .logo-box
-          = link_to image_tag("logo-white.png", class: "logo-box__logo"),root_path
-      .copy
-        © FURIMA   
-
-    .p-btn
-      .p-btn__text
-        出品する
-      .p-btn__icon
-        = link_to image_tag("icon_camera.png", class: "tag")
+    
+  = render "footer"
