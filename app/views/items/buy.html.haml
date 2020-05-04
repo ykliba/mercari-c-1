@@ -1,2 +1,36 @@
 = render "header"
+
+.main-buy
+  .simple-information
+    .simple-information__image
+      画像１
+    .simple-information__form
+      .item-name
+        商品名が入ります
+      .amount
+        .amount__shipping-fee
+          配送料が入ります
+        .amount__price
+          値段が入ります
+  .buy-form
+    = render "detail-table"
+    .payment
+      .payment__method
+        .text
+          お支払い方法
+        .credit-card
+          クレジットカード情報が入ります
+      .payment__price
+        .text
+          お支払い金額
+        .price
+          値段が入ります
+    .shipping-area
+      .text
+        配送料
+      .value
+        配送先が入ります
+    = link_to "#", class: "purchase-btn" do
+      .purchase-btn__text
+        購入する
 = render "footer"
