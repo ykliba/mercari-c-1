@@ -8,11 +8,9 @@ class ItemsController < ApplicationController
   end
   
   def show
-    set_item
   end
 
   def buy
-    set_item
   end
   
   private
