@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_05_05_133946) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "credit_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "credit_cards", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "customer_id", null: false
     t.integer "card_id", null: false
