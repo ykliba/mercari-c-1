@@ -1,0 +1,114 @@
+header {
+  width: 100%;
+  height: 100px;
+  .header-inner {
+    height: 100px;
+    width: 1040px;
+    margin: 0 auto;
+    .mainheader {
+      position: relative;
+      height: 60px;
+      display: flex;
+      .logo-box {
+        .logo {
+          width: 140px;
+          height: 40px;
+          margin-top: 15px;
+        }
+      }
+      .search {
+        width: 100%;
+        margin-left: 30px;
+        margin-top: 15px;
+        .search-box {
+          width: 870px;
+          height: 36px;
+          display: flex;
+          &__input {
+            width: 834px;
+            height: 36px;
+          }
+          &__submit {
+            width: 36px;
+            height: 36px;
+            background-color: #3ccace;
+            &__icon {
+              width: 20px;
+              height: 20px;
+              margin: 8px 8px;
+            }
+            
+            
+          }
+        }
+      }
+    }
+    .nav {
+      height: 30px;
+      width: 1040px;
+      margin-top: 10px;
+      display: flex;
+      font-size: 14px;
+      .list-left {
+        display: flex;
+        width: 300px;
+        height: 30px;
+        &__category {
+          margin-right: auto;
+          a {
+            text-decoration: none; 
+            color: black;   
+            cursor: pointer;
+          }
+        }
+        &__brand {
+          margin-right: auto;
+          a {
+            text-decoration: none; 
+            color: black;  
+            cursor: pointer;   
+          }
+        }
+      }
+      .list-right {
+        width: 300px;
+        height: 30px;
+        margin-left: auto;
+        text-align: right;
+        display: flex;
+        &__mypage {
+          margin-left: auto;
+          a {
+            text-decoration: none;
+            color: black; 
+            cursor: pointer;  
+          }
+        }
+        &__logout {
+          margin-left: auto;
+          a {
+            text-decoration: none;
+            color: black; 
+            cursor: pointer;  
+          }
+        }
+        &__login {
+          margin-left: auto;
+          a {
+            text-decoration: none;
+            color: black; 
+            cursor: pointer;  
+          }
+        }
+        &__signup {
+          margin-left: auto;
+          a {
+            text-decoration: none;
+            color: black;   
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

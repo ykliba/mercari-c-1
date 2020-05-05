@@ -1,0 +1,25 @@
+.userCreated
+  .userCreated__header
+    = image_tag("logo.png",class: "logo")
+  .userCreated__content
+    %h1 ユーザー新規登録
+    = form_for(@user, url: user_registration_path) do |f|
+      = render "devise/shared/error_messages", resource: @user
+      .field
+        = f.label :nickname, "ニックネーム (必須)", {class: "label"}
+        %br/
+        = f.text_field :nickname
+      .field
+        = f.label :email, "メールアドレス (必須)", {class: "label"}
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email"
+      .field
+        = f.label :password, "パスワード 7文字以上 (必須)", {class: "label"}
+        %br/
+        = f.password_field :password, autocomplete: "new-password"
+      .field
+        = f.label :password_confirmation, "パスワード 確認用 (必須)", {class: "label"}
+        %br/
+        = f.password_field :password_confirmation, autocomplete: "new-password"
+      .actions
+        = f.submit "Next", {class: "btn"}

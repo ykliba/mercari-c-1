@@ -1,0 +1,33 @@
+%header
+  .header-inner
+    .mainheader
+      .logo-box
+        = link_to image_tag("logo.png",class: "logo"), root_path
+      .search
+        = form_with do |f|
+          .search-box
+            = f.text_field :keyword, class: "search-box__input"
+            .search-box__submit
+              = f.label :image do
+                = image_submit_tag("icon-search 1.png", class: "search-box__submit__icon")
+            
+              
+    .nav
+      .list-left
+        .list-left__category
+          = link_to do
+            カテゴリー
+        .list-left__brand
+          = link_to do
+            ブランド
+      .list-right
+        - if user_signed_in?
+          .list-right__mypage
+            = link_to "マイページ", "#"
+          .list-right__logout
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
+        - else
+          .list-right__login
+            = link_to "新規登録", new_user_registration_path
+          .list-right__signup
+            = link_to "ログイン", new_user_session_path
