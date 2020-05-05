@@ -19,7 +19,8 @@
         .text
           お支払い方法
         .credit-card
-          商品購入機能にて実装
+          = form_tag(action: :pay, method: :post) do
+            %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_30ca0f1531019a7f73cdfae4"}
       .payment__price
         .text
           お支払い金額
@@ -35,6 +36,3 @@
         購入する
 = render "footer"
 
-= form_tag action: :pay, method: :post do
-  :plain
-    <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_30ca0f1531019a7f73cdfae4"></script>

@@ -9,11 +9,25 @@ Rails.application.routes.draw do
     get 'delivery_addresses', to: 'users/registrations#new_delivery_address'
     post 'delivery_addresses', to: 'users/registrations#create_information'
   end
+
   root 'items#index'
-  resources :items, only: :show do
-    member do
-      get "buy"
-      get "pay"
+
+  resources :items do
+    collection do
+      get  'buy/:id'=>  'items#buy', as: 'buy'
+      post 'pay/:id'=>   'items#pay', as: 'pay'#httpメソッドはpostなので注意
+      get  'done'=>      'items#done', as: 'done'
     end
   end
+
+  resources :credit_card, only: [:create, :show, :edit] do
+    collection do
+      post 'delete', to: 'credit_card#delete'
+      post 'show'
+    end
+    member do
+      get 'confirmation'
+    end
+  end 
+  
 end

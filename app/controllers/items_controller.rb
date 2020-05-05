@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   
   before_action :move_to_index, except: [:index, :show, :buy]
-  before_action :set_item, only: [:show, :buy]
+  before_action :set_item, only: [:show, :buy, :pay]
   
   def index
     @items = Item.all
@@ -10,19 +10,36 @@ class ItemsController < ApplicationController
   def show
   end
 
+  def new
+    @item = Item.new
+    @item.item_images.build
+    @item.build_shipping
+  end
+
+  def create
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to action: :index
+    end
+  end
+
   def buy
   end
   
   def pay
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     charge = Payjp::Charge.create(
-    amount: 300,#決済金額の事。変数も使えるので後で解説
+    amount: @item.price,
     card: params['payjp-token'],
     currency: 'jpy'
     )
   end
 
+  def done
+  end
+
   private
+  
   def move_to_index
     redirect_to action: :index unless user_signed_in?
   end
@@ -30,4 +47,14 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
+
+  def item_params
+    params.require(:item).permit(
+      :name,
+      :text,
+      :price,
+      #この辺の他コードは関係ない部分なので省略してます
+    ).merge(user_id: current_user.id)
+  end
+
 end
