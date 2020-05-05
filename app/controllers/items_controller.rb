@@ -13,6 +13,15 @@ class ItemsController < ApplicationController
   def buy
   end
   
+  def pay
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    charge = Payjp::Charge.create(
+    amount: 300,#決済金額の事。変数も使えるので後で解説
+    card: params['payjp-token'],
+    currency: 'jpy'
+    )
+  end
+
   private
   def move_to_index
     redirect_to action: :index unless user_signed_in?

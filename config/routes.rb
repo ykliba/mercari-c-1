@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :items, only: :show do
     member do
       get "buy"
+      get "pay"
     end
   end
 end
