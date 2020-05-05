@@ -1,0 +1,95 @@
+.userCreated {
+  background-color: #f5f5f5;
+  padding-bottom: 100px;
+  font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  &__header {
+    text-align: center;
+    height: 128px;
+    .logo {
+      margin: 40px 0 0;
+      width: 185px;
+      height: 49px;
+      line-height: 49px;
+    }
+  }
+  &__content {
+    width: 700px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding-bottom: 50px;
+    text-align: center;
+    h1 {
+      font-size: 22px;
+      padding: 32px;
+      color: #253141;
+      border-bottom: 1px solid #e0e2e4;
+      margin-bottom: 10px;
+    }
+    .label {
+      font-size: 15px;
+    }
+    #user_nickname,#user_email,#user_password,#user_password_confirmation,
+    #personal_righting_lastname,#personal_righting_firstname,#personal_righting_lastname_hiragana,#personal_righting_firstname_hiragana,#personal_righting_birthday,
+    #delivery_address_delivery_lastname,#delivery_address_delivery_firstname,#delivery_address_delivery_lastname_hiragana,#delivery_address_delivery_firstname_hiragana,#delivery_address_delivery_firstname_hiragana,#delivery_address_postal_code,#delivery_address_prefecture,#delivery_address_city,#delivery_address_address,#delivery_address_room_number,#delivery_address_phone_number {
+      margin-top: 10px;
+      margin-bottom: 20px;
+      width: 500px;
+      height: 30px;
+    }
+    .actions {
+      margin-top: 30px;
+      .btn {
+        padding: 0.5em 1em;
+        width: 150px;
+        height: 50px;
+        font-size: 15px;
+        text-decoration: none;
+        background: #3abbbb;
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+.userRegistration {
+  background-color: #f5f5f5;
+  height: 100vh;
+  &__header {
+    text-align: center;
+    height: 128px;
+    .logo {
+      margin: 40px 0 0;
+      width: 185px;
+      height: 49px;
+      line-height: 49px;
+    }
+  }
+  &__content {
+    width: 700px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding-bottom: 50px;
+    text-align: center;
+    h2 {
+      font-size: 30px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      text-align: center;
+      color: #253141;
+      border-bottom: 1px solid #e0e2e4;
+      margin-bottom: 100px;
+    }
+    &__submit {
+      width: 150px;
+      height: 50px;
+      background: #3abbbb;
+      margin: 0 auto;
+      .submitBtn {
+        font-size: 15px;
+        line-height: 50px;
+        text-decoration: none;
+        color: #ffffff;
+      }
+    }
+  }
+}
