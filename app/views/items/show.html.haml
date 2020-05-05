@@ -6,7 +6,7 @@
     .item-information
       .item-information__name
         = @item.name
-      = if user_signed_in? && current_user.id == @item.user_id
+      - if user_signed_in? && current_user.id == @item.user_id
         .item-information__link-box
           %ul
             %li
@@ -37,12 +37,16 @@
             お気に入り
           %li.like-btn__like-count
             ０
-        = if user_signed_in?
-          = if current_user.id != @item.user_id
+        - if user_signed_in?
+          - if current_user.id != @item.user_id
             = link_to root_path, class: "purchase-btn" do
-              .purchase-btn__text
+              .purchase-btn__btn-text
                 購入へ進む
-        %else
+          - else
+            = link_to buy_item_path, class: "purchase-btn" do
+              .purchase-btn__btn-text
+                商品を編集する
+        - else
           = link_to buy_item_path, class: "purchase-btn" do
             .purchase-btn__btn-text
               ログインして購入する
