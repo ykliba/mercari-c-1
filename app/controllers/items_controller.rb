@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :buy, :pay]
   
   def index
-    @items = Item.all
+    @items = Item.order('id DESC').limit(4)
   end
   
   def show
@@ -27,7 +27,7 @@ class ItemsController < ApplicationController
   end
   
   def pay
-    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    Payjp.api_key = 'sk_test_e93a274dd08ec7560c19b2b0'
     charge = Payjp::Charge.create(
     amount: @item.price,
     card: params['payjp-token'],
