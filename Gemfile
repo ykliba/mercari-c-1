@@ -80,3 +80,4 @@ end
 gem "ancestry"
 gem "devise"
 gem "payjp"
+gem "jquery-rails"
