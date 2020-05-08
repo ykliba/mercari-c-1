@@ -85,8 +85,12 @@
 }
 
 .purchase-btn {
+  
   &__text {
     background-color: $link-font-color;
+    width: 700px;
+    margin: 0 auto;
+    cursor: pointer;
     margin-top: 20px;
     height: 68px;
     text-align: center;

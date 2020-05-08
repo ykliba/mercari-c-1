@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 2020_05_05_133946) do
     t.string "shipping_area", null: false
     t.string "shipping_days", null: false
     t.integer "price", null: false
+    t.integer "buyer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

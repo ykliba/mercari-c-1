@@ -109,6 +109,10 @@
         .item-boxes
           - @items.each do |item|
             = link_to item_path(item.id), class: "item" do
+              - if @item_buyer.present? 
+                .items-box_photo__sold
+                  .items-box_photo__sold__inner
+                    SOLD
               .photo
                 = image_tag item.item_photos.find_by(params[:id]).image
               .supplement

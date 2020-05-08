@@ -1,3 +1,24 @@
-// Place all the styles related to the credit_cards controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.form-content {
+  background-color: $main_background_color;
+  width: 100vw;
+  height: 100vh;
+  padding: 30px;
+}
+
+.delete-btn {
+  margin: 10px 0;
+}
+
+.attention-text {
+  margin-bottom: 30px;
+}
+
+.top-link-btn {
+  color: $link_font_color;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.top-link {
+  margin-top: 30px;
+}

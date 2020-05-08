@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'buyers/index'
+  get 'buyers/done'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
@@ -13,10 +15,11 @@ Rails.application.routes.draw do
   root 'items#index'
 
   resources :items do
-    collection do
-      get  'buy/:id'=>  'items#buy', as: 'buy'
-      post 'pay/:id'=>   'items#pay', as: 'pay'#httpメソッドはpostなので注意
-      get  'done'=>      'items#done', as: 'done'
+    resources :buyers, only: [:index] do
+      collection do
+        get 'done', to: 'buyers#done'
+        post 'pay', to: 'buyers#pay'
+      end
     end
   end
 

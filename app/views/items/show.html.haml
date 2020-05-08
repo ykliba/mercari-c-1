@@ -37,19 +37,23 @@
             お気に入り
           %li.like-btn__like-count
             ０
-        - if user_signed_in?
-          - if current_user.id != @item.user_id
-            = link_to buy_items_path, class: "purchase-btn" do
-              .purchase-btn__btn-text
-                購入へ進む
-          - else
-            = link_to buy_items_path, class: "purchase-btn" do
-              .purchase-btn__btn-text
-                商品を編集する
+        - if @item.buyer_id.present?
+          .purchase-btn
+            売り切れました
         - else
-          = link_to buy_items_path, class: "purchase-btn" do
-            .purchase-btn__btn-text
-              ログインして購入する
+          - if user_signed_in?
+            - if current_user.id != @item.user_id
+              = link_to item_buyers_path(@item.id), class: "purchase-btn" do
+                .purchase-btn__btn-text
+                  購入へ進む
+            - else
+              = link_to "#()商品編集ページ", class: "purchase-btn" do
+                .purchase-btn__btn-text
+                  商品を編集する
+          - else
+            = link_to root_path, class: "purchase-btn" do
+              .purchase-btn__btn-text
+                ログインして購入する
         = link_to root_path, class: "report-btn" do
           %li.report-btn__icon
             = icon('fas', 'flag-checkered')
