@@ -364,25 +364,48 @@ body {
         height: 245px;
         color: black;
         background-color: white;
-        
+        position: relative;
+        &__sold {
+          width: 0;
+          height: 0;
+          border-width: 120px 120px 0 0;
+          border-color: $link-font-color transparent transparent transparent;
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 1;
+          border-style: solid;
+          &__inner{
+            top: -90px;
+            font-size: 30px;
+            position: absolute;
+            left: 0;
+            z-index: 2;
+            color: black;
+            transform: rotate(-45deg);
+            letter-spacing: 2px;
+            font-weight: 600;
+          }
+        }
         .photo > img {
-          height: 150px;
-          width: 100%;
-          object-fit: cover;
+         height: 150px;
+         width: 100%;
+         object-fit: cover;
         }
         .supplement {
-          padding: 16px;
-          height: 90px;
-          width: 100%;
-          display: flex;
-          justify-content: space-between;
-          .information {
-            font-size: 16px;
-            &__price-option {
-              font-size: 10px;
-            }
-          }
-          .like-function {
+         padding: 16px;
+         height: 90px;
+         width: 100%;
+         display: flex;
+         justify-content: space-between;
+         .information {
+           font-size: 16px;
+           &__price-option {
+             font-size: 10px;
+           }
+         }
+         .like-function {
             display: flex;
             justify-content: space-between;
             line-height: 70px;
