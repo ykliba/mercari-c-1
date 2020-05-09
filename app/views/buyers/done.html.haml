@@ -1,0 +1,9 @@
+.done-contents
+  %i.far.fa-clock
+    発送をお待ちください
+  .attention
+    購入が完了しました。
+  .paid-price
+    = "お支払い金額 ¥#{@item.price.to_s}"
+  .link-top
+    = link_to "トップページへ戻る", root_path, class: 'link-top'

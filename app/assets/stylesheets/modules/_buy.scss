@@ -1,0 +1,101 @@
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.main-buy {
+  width: 1440px;
+  background-color: $main_background_color;
+  padding: 100px 0;
+}
+
+.buy-form {
+  background-color: #fff;
+  margin: 0 auto;
+  width: 780px;
+  padding: 40px;
+}
+
+.simple-information {
+  background-color: #fff;
+  height: 200px;
+  width: 780px;
+  margin: 0 auto 20px;
+  display: flex;
+  border-bottom: 1px solid gray;
+  &__image {
+    width: 200px;
+    height: 200px;
+  }
+  &__form {
+    width: 580px;
+    height: 200px;
+    padding: 30px;
+  }
+    .item-name {
+      font-size: 32px;
+      margin-bottom: 60px;
+    }
+    .amount {
+      display: flex;
+      justify-content: flex-end;
+      font-size: 18px;
+      &__shipping-fee {
+        margin-right: 20px;
+      }
+    }
+  .simple-information__image > img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.payment {
+  margin: 40px 0 20px;
+  &__method {
+    width: 100%;
+    border: 1px solid gray;
+    border-bottom: none;
+    padding: 15px 20px;
+    font-size: 24px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__price {
+    width: 100%;
+    border: 1px solid gray;
+    padding: 15px 20px;
+    font-size: 24px;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.shipping-area {
+  background-color: #fff;
+  width: 700px;
+  margin: 0 auto;
+  padding: 20px 40px;
+  border: 1px solid gray;
+  padding: 15px 20px;
+  font-size: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.purchase-btn {
+  
+  &__text {
+    background-color: $link-font-color;
+    width: 700px;
+    margin: 0 auto;
+    cursor: pointer;
+    margin-top: 20px;
+    height: 68px;
+    text-align: center;
+    line-height: 68px;
+    font-size: 24px;
+    color: #fff;
+  }
+}

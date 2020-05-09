@@ -7,5 +7,5 @@ class User < ApplicationRecord
   validates :nickname ,presence: true, uniqueness: true
   has_one :personal_righting, dependent: :destroy
   has_many :delivery_addresses, dependent: :destroy
-
+  has_many :credit_cards, dependent: :destroy
 end

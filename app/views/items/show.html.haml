@@ -6,7 +6,7 @@
     .item-information
       .item-information__name
         = @item.name
-      = if user_signed_in? && current_user.id == @item.user_id
+      - if user_signed_in? && current_user.id == @item.user_id
         .item-information__link-box
           %ul
             %li
@@ -27,47 +27,7 @@
       .item-information__explain
         = @item.explain
 
-      %table.item-information__various-info
-        %tr
-          %th 
-            出品者
-          %td 
-            商品出品機能が完成次第実装
-        %tr
-          %th 
-            カテゴリー
-          %td
-            = link_to "カテゴリー機能が完成次第実装", "#", class: "category-link"
-        %tr
-          %th 
-            ブランド
-          %td 
-            = @item.brand
-        %tr
-          %th 
-            商品のサイズ
-          %td 
-            itemモデルにsizeカラムを追加した場合データが入る
-        %tr
-          %th 
-            商品の状態
-          %td 
-            = @item.status
-        %tr
-          %th 
-            配送料の負担
-          %td   
-            = @item.shipping_fee
-        %tr
-          %th 
-            発送元の地域
-          %td
-            = link_to "#{@item.shipping_area}", "#", class: "shipping-area-link"
-        %tr
-          %th 
-            発送日の目安
-          %td 
-            = @item.shipping_days
+      = render "detail-table"
 
       .item-information__btn-boxes
         = link_to root_path, class: "like-btn" do
@@ -77,15 +37,23 @@
             お気に入り
           %li.like-btn__like-count
             ０
-        = if user_signed_in?
-          = if current_user.id != @item.user_id
+        - if @item.buyer_id.present?
+          .purchase-btn__btn-text
+            売り切れました
+        - else
+          - if user_signed_in?
+            - if current_user.id != @item.user_id
+              = link_to item_buyers_path(@item.id), class: "purchase-btn" do
+                .purchase-btn__btn-text
+                  購入へ進む
+            - else
+              = link_to "#()商品編集ページ", class: "purchase-btn" do
+                .purchase-btn__btn-text
+                  商品を編集する
+          - else
             = link_to root_path, class: "purchase-btn" do
-              .purchase-btn__text
-                購入へ進む
-        %else
-          = link_to root_path, class: "purchase-btn" do
-            .purchase-btn__btn-text
-              ログインして購入する
+              .purchase-btn__btn-text
+                ログインして購入する
         = link_to root_path, class: "report-btn" do
           %li.report-btn__icon
             = icon('fas', 'flag-checkered')

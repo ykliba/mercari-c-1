@@ -1,0 +1,16 @@
+.mainField
+  .mainField__user
+    .mainField__user__icon
+      = image_tag "member_photo_noimage_thumb.png", width: "50px", height: "50px"
+    .mainField__user__name
+      = current_user.nickname
+    .mainField__user__number
+      .mainField__user__number--exhibition
+        %h5 出品数
+        %h6 "出品数表示"
+      .mainField__user__number--buy
+        %h5 購入数
+        %h6 "購入数表示"
+  %ul
+    %li.mainField__content
+

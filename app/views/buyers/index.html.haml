@@ -1,0 +1,40 @@
+= render "items/header"
+
+.main-buy
+  .simple-information
+    .simple-information__image
+      = image_tag @item.item_photos.find_by(params[:id]).image
+    .simple-information__form
+      .item-name
+        = @item.name
+      .amount
+        .amount__shipping-fee
+          = @item.shipping_fee
+        .amount__price
+          = "#{@item.price}円"
+  .buy-form
+    = render "items/detail-table"
+    .payment
+      .payment__method
+        .text
+          お支払い方法
+        .credit-card
+        - if @default_card_information.blank?
+          %br /
+        - else
+          = "**** **** **** " + "#{@default_card_information.last4}"
+      .payment__price
+        .text
+          お支払い金額
+        .price
+          = "#{@item.price}円(税込)"
+    .shipping-area
+      .text
+        配送先
+      .value
+        ユーザー情報の実装完了次第実装
+    = form_tag(action: :pay, method: :post, class: "purchase-btn") do
+      %button.purchase-btn__text{type:"submit"} 
+        購入する
+    
+= render "items/footer"
