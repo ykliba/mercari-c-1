@@ -23,9 +23,7 @@
       .list-right
         - if user_signed_in?
           .list-right__mypage
-            = link_to "マイページ", new_credit_card_path
-          .list-right__logout
-            = link_to "ログアウト", destroy_user_session_path, method: :delete
+            = link_to "マイページ", user_path(current_user.id)
         - else
           .list-right__login
             = link_to "新規登録", new_user_registration_path
