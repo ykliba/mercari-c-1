@@ -22,6 +22,8 @@ class BuyersController < ApplicationController
       :customer => @credit_card.customer_id,  #顧客ID
       :currency => 'jpy',              #日本円
     )
+    @item = Item.find(params[:item_id])
+    @item.update_columns(buyer_id: current_user.id)
     redirect_to done_item_buyers_path #完了画面に移動
   end
 

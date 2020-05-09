@@ -38,7 +38,7 @@
           %li.like-btn__like-count
             ０
         - if @item.buyer_id.present?
-          .purchase-btn
+          .purchase-btn__btn-text
             売り切れました
         - else
           - if user_signed_in?
