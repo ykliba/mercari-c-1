@@ -80,29 +80,6 @@
     font-size: 18px;
   }
 
-  &__various-info {
-    width: 100%;
-    height: 375px;
-    font-size: 14px;
-  }
-  &__various-info th {
-    width: 20%;
-    background-color: #eee;
-    padding: 8px;
-    border: 1px solid #dedede;
-    text-align: center;
-  }
-  &__various-info td {
-    width: 61%;
-    padding: 15px 15px;
-    border: 1px solid #dedede;
-    .category-link {
-      color: $link_font_color;
-    }
-    .shipping-area-link {
-      color: $link_font_color;
-    }
-  }
   &__btn-boxes {
     width: 620px;
     height: 60px;
@@ -125,7 +102,7 @@
   }
   .purchase-btn {
     &__btn-text {
-      background-color: red;
+      background-color: $link_font_color;
       width: 280px;
       height: 60px;
       border-radius: 40px;
