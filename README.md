@@ -95,6 +95,7 @@ Things you may want to cover:
 |shipping_days|string|null :false|
 |price|integer|null :false|
 |brand_id|integer|foreign_key :true|
+|buyer_id|integer|
 
 ### Association
 - belongs_to :user

@@ -22,9 +22,6 @@ class ItemsController < ApplicationController
       redirect_to action: :index
     end
   end
-
-  def buy
-  end
   
   def pay
     Payjp.api_key = Rails.application.credentials[:PAYJP][:PAYJP_PRIVATE_KEY]
