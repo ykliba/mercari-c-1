@@ -11,7 +11,7 @@ describe DeliveryAddress do
     it " delivery_firstnameが半角なら登録できないこと " do
       delivery_address = build(:delivery_address, delivery_firstname: "tanaka")
       delivery_address.valid?
-      expect(delivery_address.errors[:delivery_firstname]).to include("is invalid")
+      expect(delivery_address.errors[:delivery_firstname]).to include("は不正な値です")
     end
   
     it " delivery_lastnameが全角なら登録できること " do
@@ -23,7 +23,7 @@ describe DeliveryAddress do
     it " delivery_lastnameが半角なら登録できないこと " do
       delivery_address = build(:delivery_address, delivery_lastname: "taro")
       delivery_address.valid?
-      expect(delivery_address.errors[:delivery_lastname]).to include("is invalid")
+      expect(delivery_address.errors[:delivery_lastname]).to include("は不正な値です")
     end
   
     it " delivery_firstname_hiraganaがひらがななら登録できること " do
@@ -35,7 +35,7 @@ describe DeliveryAddress do
     it " delivery_firstname_hiraganaが漢字なら登録できないこと " do
       delivery_address = build(:delivery_address, delivery_firstname_hiragana: "田中")
       delivery_address.valid?
-      expect(delivery_address.errors[:delivery_firstname_hiragana]).to include("is invalid")
+      expect(delivery_address.errors[:delivery_firstname_hiragana]).to include("は不正な値です")
     end
   
     it " delivery_lastname_hiraganaがひらがななら登録できること " do
@@ -47,7 +47,7 @@ describe DeliveryAddress do
     it " delivery_lastname_hiraganaが漢字なら登録できないこと " do
       delivery_address = build(:delivery_address, delivery_lastname_hiragana: "太朗")
       delivery_address.valid?
-      expect(delivery_address.errors[:delivery_lastname_hiragana]).to include("is invalid")
+      expect(delivery_address.errors[:delivery_lastname_hiragana]).to include("は不正な値です")
     end
   
     it " postal_codeが7文字であれば登録できること " do
@@ -59,7 +59,7 @@ describe DeliveryAddress do
     it " postal_codeが7文字であれば登録できないこと " do
       delivery_address = build(:delivery_address, postal_code: "111111")
       delivery_address.valid?
-      expect(delivery_address.errors[:postal_code]).to include("is the wrong length (should be 7 characters)")
+      expect(delivery_address.errors[:postal_code]).to include("は7文字で入力してください")
     end
   end
 end
