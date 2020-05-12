@@ -1,5 +1,5 @@
 # config valid for current version and patch releases of Capistrano
-lock '3.13.0'
+lock '3.14.0'
 
 # 自身のアプリ名、リポジトリ名を記述
 set :application, 'mercari-c'

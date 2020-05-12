@@ -1,0 +1,16 @@
+.userCreated
+  .userCreated__header
+    = image_tag("logo.png",class: "logo")
+  .userCreated__content
+    %h1 ログイン
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .field
+        = f.label :email, "メールアドレス", {class: "label"}
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email"
+      .field
+        = f.label :password, "パスワード", {class: "label"}
+        %br/
+        = f.password_field :password, autocomplete: "current-password"
+      .actions
+        = f.submit "Log in", {class: "btn"}

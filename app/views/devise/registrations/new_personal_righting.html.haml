@@ -1,0 +1,29 @@
+.userCreated
+  .userCreated__header
+    = image_tag("logo.png",class: "logo")
+  .userCreated__content
+    %h1 本人認証
+    = form_for @personal_righting do |f|
+      = render "devise/shared/error_messages", resource: @personal_righting
+      .field
+        = f.label :lastname, "苗字 (必須)", {class: "label"}
+        %br/
+        = f.text_field :lastname
+      .field
+        = f.label :firstname, "名前 (必須)", {class: "label"}
+        %br/
+        = f.text_field :firstname
+      .field
+        = f.label :lastname_hiragana, "苗字 ひらがな (必須)", {class: "label"}
+        %br/
+        = f.text_field :lastname_hiragana
+      .field
+        = f.label :firstname_hiragana, "名前 ひらがな (必須)", {class: "label"}
+        %br/
+        = f.text_field :firstname_hiragana
+      .field
+        = f.label :birthday, "誕生日 (必須)", {class: "label"}
+        %br/
+        = f.text_field :birthday, placeholder: '例) 1999年1月1日生まれの場合 19990101'
+      .actions
+        = f.submit "Next", {class: "btn"}

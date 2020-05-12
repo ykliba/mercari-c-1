@@ -76,11 +76,10 @@ Things you may want to cover:
 |Column|Type|Option|
 |------|----|------|
 |user_id|integer|foreign_key :true, null :false|
-|card_number|integer|null :false|
-|effective_year|integer|null :false|
-|effective_month|integer|null :false|
-|security_code|integer|null :false|
-|card_on_the_name|string|null :false|
+
+|costomer_id|integer|null :false|
+|card_id|integer|null :false|
+
 
 ### Association
 - belongs_to :user
@@ -98,6 +97,7 @@ Things you may want to cover:
 |shipping_days|string|null :false|
 |price|integer|null :false|
 |brand_id|integer|foreign_key :true|
+|buyer_id|integer|
 
 ### Association
 - belongs_to :user

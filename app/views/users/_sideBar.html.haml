@@ -1,0 +1,36 @@
+.sideBar
+  .sideBar__list
+    %ul
+      %li.list
+        = link_to "マイページ", user_path(current_user.id)
+      %li.list
+        = link_to "いいね一覧", "#"
+      %li.list
+        = link_to "出品する", "#"
+      %li.list
+        = link_to "出品した商品-出品中", "#"
+      %li.list
+        = link_to "出品した商品-取引中", "#"
+      %li.list
+        = link_to "出品した商品-売却済み", "#"
+      %li.list
+        = link_to "購入した商品-取引中", "#"
+      %li.list
+        = link_to "購入した商品-過去の取引", "#"
+      %li.list
+        = link_to "評価一覧", "#"
+
+    %h2 設定
+    %ul
+      %li.list
+        = link_to "ユーザー情報"
+      %li.list
+        = link_to "本人情報", "#"
+      %li.list
+        = link_to "電話番号の確認", "#"
+      %li.list
+        = link_to "はっそう発送元、お届け先変更", "#"
+      %li.list
+        = link_to "支払い方法の登録", new_credit_card_path
+      %li.list
+        = link_to "ログアウト", erase_user_path(current_user)
