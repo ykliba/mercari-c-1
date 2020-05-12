@@ -20,7 +20,7 @@
                   %ul#output-box
                     %div#image-input{tabindex:"0"}
                       = item_photo.label :image, for: "item_images0", class: 'sell-container__content__upload__items__box__label', data: {label_id: 0 } do 
-                        = item_photo.file_field :image, multiple: true, class: "sell-container__content__upload__items__box__input", id: "item_images0", style: 'display: none;'
+                        = item_photo.file_field :image, class: "sell-container__content__upload__items__box__input", id: "item_images0", style: 'display: none;'
                         %pre
                           %i.fas.fa-camera.fa-lg
                           クリックしてファイルをアップロード
