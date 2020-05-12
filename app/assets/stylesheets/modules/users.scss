@@ -1,0 +1,201 @@
+.userCreated {
+  background-color: #f5f5f5;
+  padding-bottom: 100px;
+  font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  &__header {
+    text-align: center;
+    height: 128px;
+    .logo {
+      margin: 40px 0 0;
+      width: 185px;
+      height: 49px;
+      line-height: 49px;
+    }
+  }
+  &__content {
+    width: 700px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding-bottom: 50px;
+    text-align: center;
+    h1 {
+      font-size: 22px;
+      padding: 32px;
+      color: #253141;
+      border-bottom: 1px solid #e0e2e4;
+      margin-bottom: 10px;
+    }
+    .label {
+      font-size: 15px;
+    }
+    #user_nickname,#user_email,#user_password,#user_password_confirmation,
+    #personal_righting_lastname,#personal_righting_firstname,#personal_righting_lastname_hiragana,#personal_righting_firstname_hiragana,#personal_righting_birthday,
+    #delivery_address_delivery_lastname,#delivery_address_delivery_firstname,#delivery_address_delivery_lastname_hiragana,#delivery_address_delivery_firstname_hiragana,#delivery_address_delivery_firstname_hiragana,#delivery_address_postal_code,#delivery_address_prefecture,#delivery_address_city,#delivery_address_address,#delivery_address_room_number,#delivery_address_phone_number {
+      margin-top: 10px;
+      margin-bottom: 20px;
+      width: 500px;
+      height: 30px;
+    }
+    .actions {
+      margin-top: 30px;
+      .btn {
+        padding: 0.5em 1em;
+        width: 150px;
+        height: 50px;
+        font-size: 15px;
+        text-decoration: none;
+        background: #3abbbb;
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+.userRegistration {
+  background-color: #f5f5f5;
+  height: 100vh;
+  &__header {
+    text-align: center;
+    height: 128px;
+    .logo {
+      margin: 40px 0 0;
+      width: 185px;
+      height: 49px;
+      line-height: 49px;
+    }
+  }
+  &__content {
+    width: 700px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding-bottom: 50px;
+    text-align: center;
+    h2 {
+      font-size: 30px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      text-align: center;
+      color: #253141;
+      border-bottom: 1px solid #e0e2e4;
+      margin-bottom: 100px;
+    }
+    &__submit {
+      width: 150px;
+      height: 50px;
+      background: #3abbbb;
+      margin: 0 auto;
+    }
+    &__exit {
+      width: 150px;
+      height: 50px;
+      background: #7e7e7e;
+      margin: 0 auto;
+    }
+    .btn {
+      font-size: 15px;
+      line-height: 50px;
+      text-decoration: none;
+      color: #ffffff;
+    }
+  }
+}
+
+.userPage {
+  background-color: #f5f5f5;
+  height: 900px;
+  &__content {
+    width: 1020px;
+    margin: 40px auto ;
+    .sideBar {
+      float: left;
+      width: 280px;
+      margin: 0 40px 0 0;
+    }
+    h2 {
+      margin: 40px 0 0;
+      font-weight: bold;
+    }
+    .list {
+      background-color: #fff;
+      border-top: 1px solid #eee;
+      a {
+        position: relative;
+        display: block;
+        min-height: 48px;
+        padding: 16px;
+        background: #fff;
+        font-size: 14px;
+        color: #333;
+      }
+    }
+    .mainField {
+      float: right;
+      margin-top: 40px;
+      width: 700px;
+      height: 800px;
+      background-color: #fff;
+      &__user {
+        height: 200px;
+        padding-top: 40px;
+        border-bottom: 2px solid rgb(230, 97, 97);
+        &__icon {
+          width: 50px;
+          height: 50px;
+          margin: 0 auto;
+        }
+        &__name {
+          font-size: 20px;
+          text-align: center;
+          margin-bottom: 30px;
+        }
+        &__number {
+          display: flex;
+          justify-content: center;
+          &--exhibition, &--buy {
+            margin-right: 16px;
+            display: flex;
+          }
+          h5 {
+            margin-right: 8px;
+          }
+        }
+      }
+      h3 {
+        padding-left: 16px;
+        width: 100%;
+        height: 72px;
+        line-height: 72px;
+        font-weight: bold;
+      }
+      &__tabs {
+        display: flex;
+        // li {}
+        &__current {
+          height: 74px;
+          width: 50%;
+          line-height: 74px;
+          text-align: center;
+          background-color: rgb(230, 97, 97);
+          h4 {
+            color: #000;
+            font-weight: bold;
+          }
+        }
+        &__past {
+          height: 74px;
+          width: 50%;
+          line-height: 74px;
+          text-align: center;
+          background-color: rgb(235, 231, 231);
+          h4 {
+            color: #000;
+            font-weight: bold;
+          }
+        }
+      }
+      &__content {
+        height: calc(800px - 148px);
+      }
+  }
+}
+}

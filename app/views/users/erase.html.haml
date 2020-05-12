@@ -1,0 +1,7 @@
+.userRegistration
+  .userRegistration__header
+    = image_tag("logo.png",class: "logo")
+  .userRegistration__content
+    %h2 ログアウトしますか？
+    .userRegistration__content__exit
+      = link_to "ログアウトする", sign_out_path, class: "btn"

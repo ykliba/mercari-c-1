@@ -1,9 +1,7 @@
 class ItemsController < ApplicationController
   
-  def index
-    @parents = Category.all.order("id ASC").limit(13)
-  end
 
+ 
   def new
     @item = Item.new
     @item.item_photos.new
@@ -46,4 +44,41 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :explain, :status_id, :category_id, :shipping_fee_id, :shipping_area_id, :shipping_day_id, :shipping_way_id, :price,  brands_attributes: [:name],  item_photos_attributes: [:image])
   end
   
+
+  before_action :move_to_index, except: [:index, :show, :buy]
+  before_action :set_item, only: [:show, :buy, :pay]
+  
+  def index
+    @items = Item.order('id DESC').limit(4)
+  end
+  
+  def show
+  end
+
+  
+  
+  def pay
+    Payjp.api_key = Rails.application.credentials[:PAYJP][:PAYJP_PRIVATE_KEY]
+    charge = Payjp::Charge.create(
+    amount: @item.price,
+    card: params['payjp-token'],
+    currency: 'jpy'
+    )
+  end
+
+  def done
+  end
+
+  private
+  
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
+  
+
 end
