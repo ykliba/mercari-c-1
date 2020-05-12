@@ -73,7 +73,10 @@ gem 'sprockets', '3.7.2'
 group :production do
   gem 'unicorn'
 end
-gem "ancestry"
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'font-awesome-sass'
+gem 'jquery-rails'
+gem 'ancestry'
+gem 'jp_prefecture'
+gem 'active_hash'

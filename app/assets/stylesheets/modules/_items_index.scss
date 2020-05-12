@@ -64,19 +64,33 @@ body {
           height: 30px;
           &__category {
             margin-right: auto;
-            a {
-              text-decoration: none; 
-              color: black;   
-              cursor: pointer;
+            .cat_list {
+              .cat_list_text {
+                color: black;   
+                cursor: pointer;
+              }
+              .parents_list {
+                width: 224px;
+                height: 572px;
+                background-color: white;
+                position: absolute;
+                margin-top: 9px;
+                border: 1px black;
+                a {
+                  text-decoration: none;
+                  font-size: 14px;
+                  color: black;
+                  margin-right: 10px;
+                  
+                }
+                
+              }
             }
           }
           &__brand {
             margin-right: auto;
-            a {
-              text-decoration: none; 
-              color: black;  
-              cursor: pointer;   
-            }
+            color: black;  
+            cursor: pointer;   
           }
         }
         .list-right {
@@ -112,17 +126,13 @@ body {
       width: 100%;
       background-image: url("bg-mainVisual-pict_pc.jpg");
       background-size: cover;
-      position: relative;
       .content {
-        margin-left: 80px;
-        margin-top: 82px;
-        width: 1280px;
-        height: 336px;
-        position: absolute;
+        padding-top: 182px;
+        padding-left: 80px;
         text-shadow: 0 0 5px rgba(0,0,0,0.4);
         &__subtitle {
           color: white;
-          margin-top: 100px;
+          // margin-top: 100px;
           font-size: 60px;
         }
         &__text {
