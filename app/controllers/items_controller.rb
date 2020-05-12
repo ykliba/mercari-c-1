@@ -14,9 +14,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    # binding.pry
     @item = Item.new(item_params)
-    # binding pry
     if @item.save
       redirect_to root_path
     else
@@ -24,7 +22,6 @@ class ItemsController < ApplicationController
       Category.where(ancestry: nil).each do |parent|
         @category_parent_array << parent.name
       end
-     
       render :new
     end
   end
