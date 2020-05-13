@@ -20,12 +20,12 @@
         .list-left__brand
           = link_to do
             ブランド
-      -# .list-right
-      -#   - if user_signed_in?
-      -#     .list-right__mypage
-      -#       = link_to "マイページ", user_path(current_user.id)
-      -#   - else
-      -#     .list-right__login
-      -#       = link_to "新規登録", new_user_registration_path
-      -#     .list-right__signup
-      -#       = link_to "ログイン", new_user_session_path
+      .list-right
+        - if user_signed_in?
+          .list-right__mypage
+            = link_to "マイページ", user_path(current_user.id)
+        - else
+          .list-right__login
+            = link_to "新規登録", new_user_registration_path
+          .list-right__signup
+            = link_to "ログイン", new_user_session_path
