@@ -25,7 +25,10 @@ class ItemsController < ApplicationController
   def show
   end
 
-  
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy
+  end
 
   def pay
     Payjp.api_key = Rails.application.credentials[:PAYJP][:PAYJP_PRIVATE_KEY]

@@ -43,7 +43,7 @@ img {
       margin: 0px auto;
       background-color: rgb(255, 255, 255);
   
-      // 画像部分
+      
       &__content{
         height: auto;
         padding: 40px;
@@ -256,7 +256,6 @@ img {
           width: 700px;
           height: 450px;
           margin: 0 auto;
-          // position: relative;
           background-color: white;
           border-bottom: solid 1px gainsboro;
           .details-box {
