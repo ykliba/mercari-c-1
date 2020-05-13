@@ -118,7 +118,7 @@
                     .item__sold__inner 
                       SOLD
                 .photo
-                  = image_tag item.item_photos.find_by(params[:id]).image
+                  -# = image_tag item.item_photos.find_by(params[:id]).image
                 .supplement
                   .information
                     .information__item-name
@@ -143,7 +143,7 @@
           - @items.each do |item|
             =link_to item_path(item.id), class: "item" do
               .photo
-                = image_tag item.item_photos.find_by(params[:id]).image
+                -# = image_tag item.item_photos.find_by(params[:id]).image
               .supplement
                 .information
                   .information__item-name

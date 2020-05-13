@@ -9,10 +9,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.item_photos.new
-    @category_parent_array = ["選択してください"]
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
+    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
   end
 
   def create
@@ -20,10 +17,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      @category_parent_array = ["選択してください"]
-      Category.where(ancestry: nil).each do |parent|
-        @category_parent_array << parent.name
-      end
+      @category_parent_array = Category.where(ancestry: nil).pluck(:name)
       render :new
     end
   end
