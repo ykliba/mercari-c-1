@@ -77,7 +77,14 @@ gem 'mini_magick'
 group :production do
   gem 'unicorn'
 end
-gem "ancestry"
+
+
+
+
+gem 'jquery-rails'
+gem 'ancestry'
+gem 'jp_prefecture'
+gem 'active_hash'
 gem "devise"
 gem "payjp"
-gem "jquery-rails"
+
