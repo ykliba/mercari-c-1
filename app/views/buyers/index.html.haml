@@ -3,7 +3,7 @@
 .main-buy
   .simple-information
     .simple-information__image
-      = image_tag @item.item_photos.find_by(params[:id]).image
+      = image_tag @item.item_photos.find_by(params[:id]).image.url
     .simple-information__form
       .item-name
         = @item.name
