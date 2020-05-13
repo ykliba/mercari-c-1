@@ -10,4 +10,6 @@ class User < ApplicationRecord
   has_one :personal_righting, dependent: :destroy
   has_many :delivery_addresses, dependent: :destroy
   has_many :credit_cards, dependent: :destroy
+  has_many :items, dependent: :destroy
+
 end

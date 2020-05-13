@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   has_many :item_photos
   accepts_nested_attributes_for :item_photos, allow_destroy: true
-  belongs_to :user, foreign_key: 'user_id'
+  belongs_to :user
   belongs_to :category
   belongs_to :brand
 
