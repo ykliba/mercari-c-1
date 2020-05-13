@@ -15,7 +15,7 @@
               = link_to "商品を削除する", "#s", class: "delete-btn"
       %ul
         %li.heading-photo
-          = image_tag @item.item_photos.find_by(params[:id]).image.to.url
+          = image_tag @item.item_photos.find_by(params[:id]).image.url
         %ul.photo-list
           %li.photo
             - @item.item_photos.each do |photo|
