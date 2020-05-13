@@ -87,4 +87,5 @@ gem 'jp_prefecture'
 gem 'active_hash'
 gem "devise"
 gem "payjp"
+gem 'fog-aws'
 
