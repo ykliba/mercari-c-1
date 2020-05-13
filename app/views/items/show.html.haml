@@ -15,11 +15,11 @@
               = link_to "商品を削除する", "#s", class: "delete-btn"
       %ul
         %li.heading-photo
-          = image_tag @item.item_photos.find_by(params[:id]).image.to_xml
+          = image_tag @item.item_photos.find_by(params[:id]).image.to.url
         %ul.photo-list
           %li.photo
             - @item.item_photos.each do |photo|
-              = image_tag photo.image.to_xml
+              = image_tag photo.image.url
       .item-information__price
         = "#{@item.price}円"
       .item-information__tax-include
