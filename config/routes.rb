@@ -1,17 +1,17 @@
 Rails.application.routes.draw do
   root 'items#index'
   
-  devise_for :users, controllers: {
-    registrations: 'users/registrations',
-  }
+  # devise_for :users, controllers: {
+  #   registrations: 'users/registrations',
+  # }
  
-  devise_scope :user do
-    get 'personal_rightings', to: 'users/registrations#new_personal_righting'
-    post 'personal_rightings', to: 'users/registrations#create_next'
-    get 'delivery_addresses', to: 'users/registrations#new_delivery_address'
-    post 'delivery_addresses', to: 'users/registrations#create_information'
-    get "sign_out", :to => "users/sessions#destroy"
-  end
+  # devise_scope :user do
+  #   get 'personal_rightings', to: 'users/registrations#new_personal_righting'
+  #   post 'personal_rightings', to: 'users/registrations#create_next'
+  #   get 'delivery_addresses', to: 'users/registrations#new_delivery_address'
+  #   post 'delivery_addresses', to: 'users/registrations#create_information'
+  #   get "sign_out", :to => "users/sessions#destroy"
+  # end
   
   resources :users, only: :show do
     member do

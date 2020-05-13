@@ -18,19 +18,19 @@
     %th 
       商品の状態
     %td 
-      = @item.status
+      = @item.status_id
   %tr
     %th 
       配送料の負担
     %td   
-      = @item.shipping_fee
+      = @item.shipping_fee_id
   %tr
     %th 
       発送元の地域
     %td
-      = link_to "#{@item.shipping_area}", "#", class: "shipping-area-link"
+      = link_to "#{@item.shipping_area_id}", "#", class: "shipping-area-link"
   %tr
     %th 
       発送日の目安
     %td 
-      = @item.shipping_days
+      = @item.shipping_day_id
