@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :buy]
   before_action :set_item, only: [:show, :buy, :pay]
+  before_action :set_item, except: %i[index new create]
 
   def index
     @items = Item.order('id DESC').limit(4)
@@ -23,6 +24,21 @@ class ItemsController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+    @item = Item.new
+    @item.item_photos.new
+    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+      render :edit
+    end
   end
 
   
@@ -53,8 +69,10 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :explain, :status_id, :category_id, :shipping_fee_id, :shipping_area_id, :shipping_day_id, :shipping_way_id, :price,  brands_attributes: [:name],  item_photos_attributes: [:image])
+    params.require(:item).permit(:name, :explain, :status_id, :category_id, :shipping_fee_id, :shipping_area_id, :shipping_day_id, :shipping_way_id, :price, brands_attributes: [:name], item_photos_attributes: [:image])
   end
+
+ 
   
   def move_to_index
     redirect_to action: :index unless user_signed_in?
@@ -64,6 +82,8 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  
+  
   
 
 end
