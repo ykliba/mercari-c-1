@@ -66,7 +66,7 @@ img {
             margin-left: 8px;
             font-size: 12px;
             padding: 0 4px;
-            background-color: #ff0211;
+            background-color: $link_font_color;
             color: #fff;
             border-radius: 2px;
             display: inline-block;
@@ -188,8 +188,8 @@ img {
                 width: 32px;
                 height: 16px;
                 font-size: 12px;
-                background-color: #ff0211;
-                color: white;
+                background-color: $link_font_color;
+                color: #fff;
                 text-align: center;
                 line-height: 16px;
               }
@@ -222,7 +222,7 @@ img {
                 width: 32px;
                 height: 16px;
                 font-size: 12px;
-                background-color: #ff0211;
+                background-color: $link_font_color;
                 color: white;
                 text-align: center;
                 line-height: 16px;
@@ -282,7 +282,7 @@ img {
                   width: 32px;
                   height: 16px;
                   font-size: 12px;
-                  background-color: #ff0211;
+                  background-color: $link_font_color;
                   color: white;
                   text-align: center;
                   line-height: 16px;
@@ -325,7 +325,7 @@ img {
                   width: 32px;
                   height: 16px;
                   font-size: 12px;
-                  background-color: #ff0211;
+                  background-color: $link_font_color;
                   color: white;
                   text-align: center;
                   line-height: 16px;
@@ -382,7 +382,7 @@ img {
                   width: 32px;
                   height: 16px;
                   font-size: 12px;
-                  background-color: #ff0211;
+                  background-color: $link_font_color;
                   color: white;
                   text-align: center;
                   line-height: 16px;
@@ -439,7 +439,7 @@ img {
                 width: 32px;
                 height: 16px;
                 font-size: 12px;
-                background-color: #ff0211;
+                background-color: $link_font_color;
                 color: white;
                 text-align: center;
                 line-height: 16px;
@@ -471,7 +471,7 @@ img {
                 width: 32px;
                 height: 16px;
                 font-size: 12px;
-                background-color: #ff0211;
+                background-color: $link_font_color;
                 color: white;
                 text-align: center;
                 line-height: 16px;
@@ -498,7 +498,7 @@ img {
                 width: 32px;
                 height: 16px;
                 font-size: 12px;
-                background-color: #ff0211;
+                background-color: $link_font_color;
                 color: white;
                 text-align: center;
                 line-height: 16px;
@@ -530,7 +530,7 @@ img {
                 width: 32px;
                 height: 16px;
                 font-size: 12px;
-                background-color: #ff0211;
+                background-color: $link_font_color;
                 color: white;
                 text-align: center;
                 line-height: 16px;
@@ -577,7 +577,7 @@ img {
                 width: 32px;
                 height: 16px;
                 font-size: 12px;
-                background-color: #ff0211;
+                background-color: $link_font_color;
                 color: white;
                 text-align: center;
                 line-height: 16px;
@@ -671,7 +671,7 @@ img {
               .submit {
                 width: 360px;
                 height: 48px;
-                background-color: #ff0211;
+                background-color: $link_font_color;
                 color: white;
                 font-size: 17px;
                 text-align: center;
