@@ -157,7 +157,7 @@
               .btn-box__sell
                 = f.submit "出品する", class: "submit"
               .btn-box__back
-                = link_to root_path do
+                = link_to user_path(current_user.id) do
                   もどる
   
   .footer

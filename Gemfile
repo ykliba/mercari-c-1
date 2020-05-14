@@ -77,10 +77,6 @@ gem 'mini_magick'
 group :production do
   gem 'unicorn'
 end
-
-
-
-
 gem 'jquery-rails'
 gem 'ancestry'
 gem 'jp_prefecture'
