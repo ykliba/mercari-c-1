@@ -6,9 +6,9 @@ class CreditCardsController < ApplicationController
   end
 
 
-  def pay #payjpとCardのデータベース作成
+  def pay 
     Payjp.api_key = Rails.application.credentials[:PAYJP][:PAYJP_PRIVATE_KEY]
-    #保管した顧客IDでpayjpから情報取得
+    
     if params['payjp-token'].blank?
       redirect_to new_credit_card_path
     else
@@ -25,7 +25,7 @@ class CreditCardsController < ApplicationController
     end
   end
 
-  def destroy #PayjpとCardデータベースを削除
+  def destroy
     credit_card = CreditCard.find_by(user_id: current_user.id)
     if credit_card.blank?
     else
@@ -37,7 +37,7 @@ class CreditCardsController < ApplicationController
       redirect_to new_credit_card_path
   end
 
-  def show #Cardのデータpayjpに送り情報を取り出す
+  def show
     credit_card = CreditCard.find_by(user_id: current_user.id)
     if credit_card.blank?
       redirect_to new_credit_card_path 
