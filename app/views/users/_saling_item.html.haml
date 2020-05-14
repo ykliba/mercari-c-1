@@ -1,0 +1,7 @@
+.mainField__content__list.saling_item
+  - current_user.items.each do |saling_item|
+    .mainField__content__list__item
+      .mainField__content__list__item--image
+        = image_tag saling_item.item_photos.find_by(params[:id]).image.url
+      .mainField__content__list__item--name
+        = saling_item.name

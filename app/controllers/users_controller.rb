@@ -1,14 +1,12 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find(current_user.id)
-   end
+    @user = User.where(id: current_user.id)
+  end
 
-   def erase
-   end
+  def erase
+  end
 
-   def done
-   end
-
-   private
+  def done
+  end
 
 end
