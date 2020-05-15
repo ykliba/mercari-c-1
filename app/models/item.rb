@@ -7,6 +7,7 @@ class Item < ApplicationRecord
 
   include JpPrefecture
   jp_prefecture :shipping_area
+  validates :item_photos, presence: true
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :shipping_day
