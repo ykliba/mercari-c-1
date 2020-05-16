@@ -1,6 +1,12 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_category
+
+  protected
+  def set_category
+    @parents  = Category.where(ancestry: nil)
+  end
 
   private
 
