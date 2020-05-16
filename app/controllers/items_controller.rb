@@ -12,6 +12,14 @@ class ItemsController < ApplicationController
     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
   end
 
+  def get_category_children
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  end
+
+  def get_category_grandchildren
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
+  end
+
   def create
     @item = Item.new(item_params)
     if @item.save
@@ -20,6 +28,29 @@ class ItemsController < ApplicationController
       @category_parent_array = Category.where(ancestry: nil).pluck(:name)
       render :new
     end
+  end
+
+  def edit
+
+    grandchild_category = @item.category
+    child_category = grandchild_category.parent
+
+
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+
+    @category_children_array = []
+    Category.where(ancestry: child_category.ancestry).each do |children|
+      @category_children_array << children
+    end
+
+    @category_grandchildren_array = []
+    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
+      @category_grandchildren_array << grandchildren
+    end
+
   end
 
   def show
@@ -42,17 +73,6 @@ class ItemsController < ApplicationController
   def done
   end
 
-  
-
-  def get_category_children
-    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
-  end
-
-  def get_category_grandchildren
-    @category_grandchildren = Category.find("#{params[:child_id]}").children
-  end
-
-  
   private
 
   def item_params
