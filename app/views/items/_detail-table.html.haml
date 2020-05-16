@@ -8,7 +8,12 @@
     %th 
       カテゴリー
     %td
-      = link_to "カテゴリー機能が完成次第実装", "#", class: "category-link"
+      .category_parent
+        = link_to @item.category.parent.parent.name, "#", class: "category-link"
+      .category_chidren
+        = link_to @item.category.parent.name, "#", class: "category-link"
+      .category_grandchidren
+        = link_to @item.category.name, "#", class: "category-link"
   %tr
     %th 
       ブランド
@@ -28,7 +33,7 @@
     %th 
       発送方法
     %td
-      = @item.shipping_way.name
+      = link_to "#{@item.shipping_way.name}", "#", class: "shipping-area-link"
   %tr
     %th 
       発送日の目安
