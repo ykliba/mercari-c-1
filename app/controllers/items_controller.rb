@@ -27,6 +27,7 @@ class ItemsController < ApplicationController
   def show
   end
 
+
   def edit
     @item = Item.find(params[:id])
     @parents = Category.all.order("id ASC").limit(13)
@@ -39,7 +40,8 @@ class ItemsController < ApplicationController
     format.html
     format.json
     end
-  end
+
+  
 
   def update
     @item = Item.find(params[:id])
@@ -48,6 +50,11 @@ class ItemsController < ApplicationController
     else
       render :edit
     end
+  end
+    
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy
   end
 
     # imageLength = 0

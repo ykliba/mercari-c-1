@@ -11,5 +11,7 @@ class User < ApplicationRecord
   has_many :delivery_addresses, dependent: :destroy
   has_many :credit_cards, dependent: :destroy
   has_many :items, dependent: :destroy
+  has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
+  has_many :saling_items, -> { where("buyer_id is NULL") }, foreign_key: "saler_id", class_name: "Item"
 
 end
