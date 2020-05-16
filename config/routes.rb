@@ -24,9 +24,10 @@ Rails.application.routes.draw do
   
   resources :items do
     collection do
-      get 'get_category_children', defaults: { format: 'json' }
-      get 'get_category_grandchildren', defaults: { format: 'json' }
-      get 'get_shipping_way'
+      get "set_item_photos"
+      get "set_parents"
+      get "set_children"
+      get "set_grandchildren"
     end
     resources :buyers, only: [:index] do
       collection do
