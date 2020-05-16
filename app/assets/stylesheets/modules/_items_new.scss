@@ -24,7 +24,6 @@
   
   .main {
     .sell-container {
-
       .new-wrapper{
         &__main{
           width: 700px;
@@ -43,60 +42,6 @@
             }
             .new-wrapper__main__preview,.new-wrapper__main__preview-first{
               margin: 16px 0;
-
-      box-sizing: border-box;
-      max-width: 700px;
-      width: 100%;
-      margin: 0px auto;
-      background-color: rgb(255, 255, 255);
-  
-      
-      &__content{
-        height: auto;
-        padding: 40px;
-        border-bottom: 1px;
-        border-bottom-color: #efefef;
-        border-bottom-style: solid;
-        &__max-sheet{
-          margin-top: 16px;
-        }
-        .sell-title{
-          align-items: center;
-          margin: 0!important;
-          box-sizing: border-box;
-          &__text{
-            font-size: 14px;
-            font-weight: 600;
-            line-height: 1.4em;
-          }
-          &__require{
-            margin-left: 8px;
-            font-size: 12px;
-            padding: 0 4px;
-            background-color: $link_font_color;
-            color: #fff;
-            border-radius: 2px;
-            display: inline-block;
-            font-style: normal;
-            font-weight: 600;
-            line-height: 1.4em;
-            margin: 0;
-          }
-        }
-        &__upload{
-          margin-top: 16px;
-          display: flex;
-          flex-wrap: wrap;
-          &__items{
-            height: auto;
-            width: 100%;
-  
-            &__box{
-              height: auto;
-              align-content: center;
-              align-items: center;
-              cursor: pointer;
-
               display: flex;
               flex-wrap: wrap;
               &__image{
@@ -269,11 +214,8 @@
                 width: 32px;
                 height: 16px;
                 font-size: 12px;
-
                 background-color: #3ccace;
                 color: white;
-
-                
                 text-align: center;
                 line-height: 16px;
               }
@@ -306,11 +248,7 @@
                 width: 32px;
                 height: 16px;
                 font-size: 12px;
-
                 background-color: #3ccace;
-
-                
-
                 color: white;
                 text-align: center;
                 line-height: 16px;
@@ -344,6 +282,7 @@
           width: 700px;
           height: 450px;
           margin: 0 auto;
+          // position: relative;
           background-color: white;
           border-bottom: solid 1px gainsboro;
           .details-box {
@@ -358,7 +297,6 @@
               font-weight: 600;
               margin-bottom: 24px;
             }
-
             .cat-title {
               font-size: 14px;
               font-weight: bold;
@@ -369,8 +307,6 @@
                 font-size: 12px;
                 background-color: #3ccace;
                 
-
-           
               }
             }
             .size-wrapper {
@@ -386,11 +322,7 @@
                   width: 32px;
                   height: 16px;
                   font-size: 12px;
-
                   background-color: #3ccace;
-
-               
-
                   color: white;
                   text-align: center;
                   line-height: 16px;
@@ -447,11 +379,7 @@
                   width: 32px;
                   height: 16px;
                   font-size: 12px;
-
                   background-color: #3ccace;
-
-                  
-
                   color: white;
                   text-align: center;
                   line-height: 16px;
@@ -508,9 +436,7 @@
                 width: 32px;
                 height: 16px;
                 font-size: 12px;
-
                 background-color: #3ccace;
-
                 color: white;
                 text-align: center;
                 line-height: 16px;
@@ -542,9 +468,7 @@
                 width: 32px;
                 height: 16px;
                 font-size: 12px;
-
                 background-color: #3ccace;
-
                 color: white;
                 text-align: center;
                 line-height: 16px;
@@ -571,9 +495,7 @@
                 width: 32px;
                 height: 16px;
                 font-size: 12px;
-
                 background-color: #3ccace;
-
                 color: white;
                 text-align: center;
                 line-height: 16px;
@@ -605,9 +527,7 @@
                 width: 32px;
                 height: 16px;
                 font-size: 12px;
-
                 background-color: #3ccace;
-
                 color: white;
                 text-align: center;
                 line-height: 16px;
@@ -654,9 +574,7 @@
                 width: 32px;
                 height: 16px;
                 font-size: 12px;
-
                 background-color: #3ccace;
-
                 color: white;
                 text-align: center;
                 line-height: 16px;
@@ -750,9 +668,7 @@
               .submit {
                 width: 360px;
                 height: 48px;
-
                 background-color: #3ccace;
-
                 color: white;
                 font-size: 17px;
                 text-align: center;

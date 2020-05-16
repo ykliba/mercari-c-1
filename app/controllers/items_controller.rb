@@ -37,9 +37,10 @@ class ItemsController < ApplicationController
       @grandchild_categories = Category.where('ancestry LIKE ?', "%/#{params[:child]}")
     end
     respond_to do |format|
-    format.html
-    format.json
+      format.html
+      format.json
     end
+  end
 
   
 
