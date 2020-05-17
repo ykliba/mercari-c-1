@@ -132,9 +132,6 @@ class ItemsController < ApplicationController
   def set_grandchildren
     @grandchildren = Category.where(ancestry: params[:ancestry])
   end
-
-  
-  
   
   private
 
