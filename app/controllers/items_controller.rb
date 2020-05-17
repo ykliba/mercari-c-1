@@ -7,6 +7,9 @@ class ItemsController < ApplicationController
     @items = Item.order('id DESC').limit(4)
   end
   
+  def show
+  end  
+
   def new
     @item = Item.new
     @item.item_photos.new
@@ -34,13 +37,15 @@ class ItemsController < ApplicationController
 
   def edit
 
+    @item = Item.find(params[:id])
+    @parents = Category.all.order("id ASC").limit(13)
+  
     grandchild_category = @item.category
     child_category = grandchild_category.parent
 
-
     @category_parent_array = []
     Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
+      @category_parent_array << parent
     end
 
     @category_children_array = []
@@ -52,16 +57,6 @@ class ItemsController < ApplicationController
     Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
       @category_grandchildren_array << grandchildren
     end
-
-  end
-
-  def show
-  end
-
-
-  def edit
-    @item = Item.find(params[:id])
-    @parents = Category.all.order("id ASC").limit(13)
     if params[:parent]
       @child_categories = Category.where('ancestry = ?', "#{params[:parent]}")
     else
@@ -71,9 +66,9 @@ class ItemsController < ApplicationController
       format.html
       format.json
     end
+
   end
 
-  
 
   def update
     @item = Item.find(params[:id])
@@ -84,11 +79,13 @@ class ItemsController < ApplicationController
     end
   end
     
+
   def destroy
     item = Item.find(params[:id])
     item.destroy
   end
 
+  
     # imageLength = 0
     # deleteImage = 0
     # params[:item][:images_attributes].each do |p|
