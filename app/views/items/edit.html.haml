@@ -23,12 +23,9 @@
                     .new-wrapper__main__image-field__text
                     クリックしてファイルをアップロード
                   = f.fields_for :item_photos do |i|
-                    -# = image_tag i.object.image.url
                     = i.file_field :image, {class: "file-field"}
                     = i.check_box :_destroy, {class: "hidden"}
-                    -# .del 削除
                     
-                  -# = i.check_box :_destroy, {class: "hidden"}
                   
               
              
@@ -71,8 +68,8 @@
               .cat-title
                 カテゴリー
                 %span{class: "require"} 必須
-              #request{action: request.path}  
-                #category-select
+              #request2{action: request.path}  
+                #category-select2
                 
               
             
