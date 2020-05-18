@@ -8,10 +8,21 @@ class ItemsController < ApplicationController
     @items = Item.order('id DESC').limit(4)
   end
   
+  def show
+  end  
+
   def new
     @item = Item.new
     @item.item_photos.new
     @parents = Category.all.order("id ASC").limit(13)
+  end
+
+  def get_category_children
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  end
+
+  def get_category_grandchildren
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
   def create
@@ -25,12 +36,27 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show
-  end
-
-
   def edit
+
     @parents = Category.all.order("id ASC").limit(13)
+  
+    grandchild_category = @item.category
+    child_category = grandchild_category.parent
+
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent
+    end
+
+    @category_children_array = []
+    Category.where(ancestry: child_category.ancestry).each do |children|
+      @category_children_array << children
+    end
+
+    @category_grandchildren_array = []
+    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
+      @category_grandchildren_array << grandchildren
+    end
     if params[:parent]
       @child_categories = Category.where('ancestry = ?', "#{params[:parent]}")
     else
@@ -40,7 +66,9 @@ class ItemsController < ApplicationController
       format.html
       format.json
     end
+
   end
+
 
   def update
     if @item.update(item_params)
@@ -50,10 +78,12 @@ class ItemsController < ApplicationController
     end
   end
     
+
   def destroy
     item = Item.find(params[:id])
     item.destroy
   end
+
 
   def pay
     Payjp.api_key = Rails.application.credentials[:PAYJP][:PAYJP_PRIVATE_KEY]
@@ -83,9 +113,11 @@ class ItemsController < ApplicationController
     @grandchildren = Category.where(ancestry: params[:ancestry])
   end
 
+
   def set_item_photos
     @item_photos = ItemPhoto.where(item_id: params[:id])
   end
+
 
 
   private
