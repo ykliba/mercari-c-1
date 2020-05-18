@@ -1,6 +1,6 @@
 $(document).on('turbolinks:load', function(){
   let request = $("#request").attr("action");
-  if(request.indexOf("new") != -1|| request.indexOf("edit") != -1){
+  if(request){
     $.ajax({
       url: "/items/set_parents"
     }).done(function(data){
@@ -8,6 +8,8 @@ $(document).on('turbolinks:load', function(){
       data.parents.forEach(function(parent){
         $(".select-parent").append(`<option value="${parent.id}">${parent.name}</option>`);
       })
+    })  
+  }
       $(".select-parent").on("change", function(){
         $(".select-child").remove();
         $(".select-grandchild").remove();
@@ -25,13 +27,16 @@ $(document).on('turbolinks:load', function(){
             $(".select-parent").attr("name", "select-parent");
             $(".select-parent").css("margin-bottom", "10px");
             $("#category-select").append(`<select class="new-wrapper__main__input-select select-child" name="item[category_id]" id="item_category_id"><option value="">選択してください</option></select>`);
+    
             data.children.forEach(function(child){
               $(".select-child").append(`<option value="${child.id}">${child.name}</option>`);
             })
           })
         }
       })
+
       $("#category-select").on("change", ".select-child", function(){
+        
         $(".select-grandchild").remove();
         if($(this).val() == ""){
           $(".select-child").attr("id"  , "item_category_id");
@@ -53,6 +58,5 @@ $(document).on('turbolinks:load', function(){
           })
         }
       })
-    })
-  }
+    
 })

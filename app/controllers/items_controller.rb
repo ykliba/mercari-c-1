@@ -7,10 +7,21 @@ class ItemsController < ApplicationController
     @items = Item.order('id DESC').limit(4)
   end
   
+  def show
+  end  
+
   def new
     @item = Item.new
     @item.item_photos.new
     @parents = Category.all.order("id ASC").limit(13)
+  end
+
+  def get_category_children
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  end
+
+  def get_category_grandchildren
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
   def create
@@ -24,13 +35,28 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show
-  end
-
-
   def edit
+
     @item = Item.find(params[:id])
     @parents = Category.all.order("id ASC").limit(13)
+  
+    grandchild_category = @item.category
+    child_category = grandchild_category.parent
+
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent
+    end
+
+    @category_children_array = []
+    Category.where(ancestry: child_category.ancestry).each do |children|
+      @category_children_array << children
+    end
+
+    @category_grandchildren_array = []
+    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
+      @category_grandchildren_array << grandchildren
+    end
     if params[:parent]
       @child_categories = Category.where('ancestry = ?', "#{params[:parent]}")
     else
@@ -40,9 +66,9 @@ class ItemsController < ApplicationController
       format.html
       format.json
     end
+
   end
 
-  
 
   def update
     @item = Item.find(params[:id])
@@ -53,11 +79,13 @@ class ItemsController < ApplicationController
     end
   end
     
+
   def destroy
     item = Item.find(params[:id])
     item.destroy
   end
 
+  
     # imageLength = 0
     # deleteImage = 0
     # params[:item][:images_attributes].each do |p|
@@ -104,9 +132,6 @@ class ItemsController < ApplicationController
   def set_grandchildren
     @grandchildren = Category.where(ancestry: params[:ancestry])
   end
-
-  
-  
   
   private
 
