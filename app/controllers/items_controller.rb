@@ -32,7 +32,7 @@ class ItemsController < ApplicationController
       redirect_to root_path
     else
       @parents = Category.all.order("id ASC").limit(13)
-      rnder new
+      render new
     end
   end
 
