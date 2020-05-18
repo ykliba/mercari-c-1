@@ -7,6 +7,7 @@
     .sell-container
       = form_with model: @item, url: item_path(@item.id), local: true do |f|
         .new-wrapper
+
           #request{action: request.path}
             .new-wrapper__main
               .new-wrapper__main__title
@@ -24,12 +25,7 @@
                     クリックしてファイルをアップロード
                   = f.fields_for :item_photos do |i|
                     = i.file_field :image, {class: "file-field"}
-                    = i.check_box :_destroy, {class: "hidden"}
-                    
-                  
-              
-             
-          
+                    = i.check_box :_destroy, {class: "hidden"}          
         
         .items-section
           .items-main
@@ -65,27 +61,18 @@
             .details-box
               .details-box__maintitle
                 商品の詳細
-
               .cat-title
+              
                 カテゴリー
                 %span{class: "require"} 必須
-              #request2{action: request.path}  
-                #category-select2
-                
-              
 
-              .new-wrapper__main__title
-                = f.label :category_id , class: 'require category-wrapper-label', id: "category-select" do
-                  カテゴリー：
-                  %span.required ※必須
-                  .category-wrapper-box
-                    #category-select
-                      
-                      = f.select :child_id, options_for_select(@category_parent_array.map{|parent_hash| [parent_hash.name, parent_hash.id, {data:{category: parent_hash.id}}]}, {prompt: "指定なし", selected: @item.category.parent.parent.id}),{}, {class: 'new-wrapper__main__input-select select-parent', id: 'select-parent'}
-                      = f.select :child_id, options_for_select(@category_children_array.map{|child_hash| [child_hash.name, child_hash.id, {data:{category: child_hash.id}}]}, {prompt: "指定なし", selected: @item.category.parent.id}),{}, {class: 'new-wrapper__main__input-select select-child', id: 'select-parent'}
-                      = f.select :category_id, options_for_select(@category_grandchildren_array.map{|grandchild_hash| [grandchild_hash.name, grandchild_hash.id, {data:{category: grandchild_hash.id}}]}, {prompt: "指定なし", selected: @item.category.id}),{}, {class: 'new-wrapper__main__input-select select-grandchild', id: 'item_category_id'}
-                      
+                .category-wrapper-box
+                  #category-select
+                    = f.select :child_id, options_for_select(@category_parent_array.map{|parent_hash| [parent_hash.name, parent_hash.id, {data:{category: parent_hash.id}}]}, {prompt: "指定なし", selected: @item.category.parent.parent.id}),{}, {class: 'new-wrapper__main__input-select select-parent', id: 'select-parent'}
+                    = f.select :child_id, options_for_select(@category_children_array.map{|child_hash| [child_hash.name, child_hash.id, {data:{category: child_hash.id}}]}, {prompt: "指定なし", selected: @item.category.parent.id}),{}, {class: 'new-wrapper__main__input-select select-child', id: 'select-parent'}
+                    = f.select :category_id, options_for_select(@category_grandchildren_array.map{|grandchild_hash| [grandchild_hash.name, grandchild_hash.id, {data:{category: grandchild_hash.id}}]}, {prompt: "指定なし", selected: @item.category.id}),{}, {class: 'new-wrapper__main__input-select select-grandchild', id: 'item_category_id'}
 
+                      
             
               .status-wrapper
                 .status-text
