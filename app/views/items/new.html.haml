@@ -60,8 +60,10 @@
               .details-box__maintitle
                 商品の詳細
               .cat-title
+
                 カテゴリー
                 %span{class: "require"} 必須
+
               #request2{action: request.path}  
                 #category-select2
                 
@@ -159,23 +161,5 @@
     .footer-logo
       = image_tag("logo-white.png", class: "logo")
 
-      -# = form_with model: @item do |f|
-      -#   .sell-container__content
-      -#     .sell-title
-      -#       %h3.sell-title__text
-      -#         出品画像
-      -#         %span.sell-title__require
-      -#           必須
-      -#     .sell-container__content__max-sheet 最大10枚までアップロードできます
-      -#     .sell-container__content__upload
-      -#       .sell-container__content__upload__items
-      -#         .sell-container__content__upload__items__box
-      -#           = f.fields_for :item_photos do |item_photo|
-      -#             %ul#output-box
-      -#               %div#image-input{tabindex:"0"}
-      -#                 = item_photo.label :image, for: "item_images0", class: 'sell-container__content__upload__items__box__label', data: {label_id: 0 } do 
-      -#                   = item_photo.file_field :image, class: "sell-container__content__upload__items__box__input", id: "item_images0", style: 'display: none;'
-      -#                   %pre
-      -#                     %i.fas.fa-camera.fa-lg
-      -#                     クリックしてファイルをアップロード
-      -#     .error-messages#error-image
+= javascript_include_tag 'category_new.js'
+= javascript_include_tag 'item.js'
