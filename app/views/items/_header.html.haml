@@ -1,3 +1,4 @@
+#request{action: request.path}
 %header
   .header-inner
     .mainheader
@@ -15,7 +16,12 @@
     .nav
       .list-left
         .list-left__category
-          -# = link_to "編集", edit_item_path(@items.ids) 
+          #category-area
+            %i{class: "fas fa-list"}
+            カテゴリー
+            .category-box
+              = render "category"
+          
             
         .list-left__brand
           = link_to do
