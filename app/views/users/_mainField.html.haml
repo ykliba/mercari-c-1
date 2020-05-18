@@ -6,11 +6,12 @@
       = current_user.nickname
     .mainField__user__number
       .mainField__user__number--exhibition
-        %h5 出品数
-        %h6 "出品数表示"
+        %h5 出品済み商品
       .mainField__user__number--buy
-        %h5 購入数
-        %h6 "購入数表示"
-  %ul
-    %li.mainField__content
+        %h5 購入済み商品
+  .mainField__content
+    = render 'saling_item'
+    = render 'buyd_item'
+
+
 

@@ -1,0 +1,185 @@
+.body-new
+  .header
+    .header-logo
+      = link_to image_tag("logo.png", class: "logo"), root_path
+  
+  .main
+    .sell-container
+      = form_with model: @item, url: items_path, local: true do |f|
+        .new-wrapper
+          .new-wrapper__main
+            .new-wrapper__main__title
+              出品画像
+              %span{class: "require"} 必須
+            .new-wrapper__main__text
+              最大10枚までアップロードできます
+            -# 編集箇所ここから
+            .flexbox
+              .new-wrapper__main__preview
+              %label{id: "image-wrapper", action: request.path}
+                .new-wrapper__main__image-field
+                  %i{class: "fas fa-camera"}
+                  .new-wrapper__main__image-field__text
+                  クリックしてファイルをアップロード
+                = f.fields_for :item_photos do |i|
+                  = i.file_field :image, {class: "file-field"}
+            
+        
+        .items-section
+          .items-main
+            .items-box
+              .items-box__name
+                .items-box__name__title
+                  商品名
+                .items-box__name__attention
+                  必須
+              .items-box__form
+                = f.text_field :name, placeholder: "40文字まで", class: "input", required: "required"
+              .items-box__message
+              
+              .items-box__explain
+                .items-box__explain__title
+                  商品の説明
+                .items-box__explain__attention
+                  必須
+              .items-box__expform
+                = f.text_area :explain, placeholder: "商品の説明 (必須 1,000字以内)", class: "expinput", id: "input_text", required: "required", rows: 7, maxlength: 1000
+              .items-box__counter
+                #word-count
+                  0
+                .thou
+                  &#47;1000
+                
+                
+              .items-box__message2
+                
+                
+        .details-section
+          .details-main
+            .details-box
+              .details-box__maintitle
+                商品の詳細
+              .cat-title
+                カテゴリー
+                %span{class: "require"} 必須
+              #request{action: request.path}  
+                #category-select
+                
+              
+              .status-wrapper
+                .status-text
+                  .status-text__title
+                    商品の状態
+                  .status-text__attention
+                    必須
+                .status-input
+                  = f.collection_select :status_id, Status.all, :id, :name,{prompt: "選択してください"}, class: "sta", required: "required"
+                
+              
+                
+        .shipping-section
+          .shipping-main
+            .shipping-box
+              .shipping-box__maintitle
+                配送について
+              .shipping-box__fee
+                .shipping-box__fee__title
+                  配送料の負担
+                .shipping-box__fee__attention
+                  必須
+              .shipping-box__fee-input
+                = f.collection_select :shipping_fee_id, ShippingFee.all, :id, :name,{prompt: "選択してください"}, class:"fee", required: "required"
+              .shipping-box__message
+
+              .shipping-box__way
+                .shipping-box__way__title
+                  発送の方法
+                .shipping-box__way__attention
+                  必須
+              .shipping-box__way-input
+                = f.collection_select :shipping_way_id, ShippingWay.all, :id, :name,{prompt: "選択してください"}, class: "way", required: "required"
+              
+              .shipping-box__area
+                .shipping-box__area__title
+                  発送元の地域
+                .shipping-box__area__attention
+                  必須
+              .shipping-box__area-input
+                = f.collection_select :shipping_area_id, JpPrefecture::Prefecture.all, :code, :name,{prompt: "選択してください"}, class: "pref", required: "required"
+              .shipping-box__message
+                
+              .shipping-box__days
+                .shipping-box__days__title
+                  発送までの日数
+                .shipping-box__days__attention
+                  必須
+              .shipping-box__days-input
+                = f.collection_select :shipping_day_id, ShippingDay.all, :id, :name,{prompt: "選択してください"}, class: "day", required: "required"
+              .shipping-box__message
+              
+
+        .price-section
+          .price-main
+            .price-box   
+              .price-box__maintitle
+                価格 (¥300〜9,999,999)
+              .price-box__set
+                .price-box__set__title
+                  販売価格
+                .price-box__set__attention
+                  必須
+                .price-box__set__mark
+                  ¥
+                .price-box__set__price-input
+                  = f.number_field :price, class: "pri", placeholder: 0, value: '', required: "required", id: "item_price"
+              .price-box__message
+                -# 300以上9999999以下で入力してください
+              .price-box__fee-box
+                .price-box__fee-box__text
+                  販売手数料（10%）
+                .price-box__fee-box__number
+                -# .price-box__fee-box__line
+              .price-box__profit-box
+                .price-box__profit-box__text
+                  販売利益
+                .price-box__profit-box__number
+                -# .price-box__profit-box__line
+        
+        .btn-section
+          .btn-main
+            .btn-box
+              .btn-box__sell
+                = f.submit "出品する", class: "submit"
+              .btn-box__back
+                = link_to user_path(current_user.id) do
+                  もどる
+  .footer
+    .footer-logo
+      = image_tag("logo-white.png", class: "logo")
+
+      
+      
+      
+      
+      
+      
+      -# = form_with model: @item do |f|
+      -#   .sell-container__content
+      -#     .sell-title
+      -#       %h3.sell-title__text
+      -#         出品画像
+      -#         %span.sell-title__require
+      -#           必須
+      -#     .sell-container__content__max-sheet 最大10枚までアップロードできます
+      -#     .sell-container__content__upload
+      -#       .sell-container__content__upload__items
+      -#         .sell-container__content__upload__items__box
+      -#           = f.fields_for :item_photos do |item_photo|
+      -#             %ul#output-box
+      -#               %div#image-input{tabindex:"0"}
+      -#                 = item_photo.label :image, for: "item_images0", class: 'sell-container__content__upload__items__box__label', data: {label_id: 0 } do 
+      -#                   = item_photo.file_field :image, class: "sell-container__content__upload__items__box__input", id: "item_images0", style: 'display: none;'
+      -#                   %pre
+      -#                     %i.fas.fa-camera.fa-lg
+      -#                     クリックしてファイルをアップロード
+      -#     .error-messages#error-image

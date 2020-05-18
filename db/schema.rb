@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_05_133946) do
+ActiveRecord::Schema.define(version: 2020_05_17_082921) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -50,26 +50,30 @@ ActiveRecord::Schema.define(version: 2020_05_05_133946) do
     t.index ["user_id"], name: "index_delivery_addresses_on_user_id"
   end
 
-  create_table "item_photos", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "item_id"
-    t.string "image", null: false
+  create_table "item_photos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "item_id", null: false
+    t.index ["item_id"], name: "index_item_photos_on_item_id"
   end
 
-  create_table "items", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "brand_id"
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "explain", null: false
-    t.string "status", null: false
-    t.string "shipping_fee", null: false
-    t.string "shipping_area", null: false
-    t.string "shipping_days", null: false
     t.integer "price", null: false
-    t.integer "buyer_id"
+    t.integer "brand_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "seller_id"
+    t.integer "buyer_id"
+    t.integer "shipping_day_id", null: false
+    t.integer "shipping_area_id", null: false
+    t.integer "shipping_fee_id", null: false
+    t.integer "shipping_way_id", null: false
+    t.integer "status_id", null: false
+    t.integer "category_id"
+    t.integer "user_id"
   end
 
   create_table "personal_rightings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -99,5 +103,6 @@ ActiveRecord::Schema.define(version: 2020_05_05_133946) do
   end
 
   add_foreign_key "delivery_addresses", "users"
+  add_foreign_key "item_photos", "items"
   add_foreign_key "personal_rightings", "users"
 end

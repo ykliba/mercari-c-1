@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-
-  get 'buyers/index'
-  get 'buyers/done'
+  root 'items#index'
+  
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
+ 
   devise_scope :user do
     get 'personal_rightings', to: 'users/registrations#new_personal_righting'
     post 'personal_rightings', to: 'users/registrations#create_next'
@@ -12,9 +12,7 @@ Rails.application.routes.draw do
     post 'delivery_addresses', to: 'users/registrations#create_information'
     get "sign_out", :to => "users/sessions#destroy"
   end
-
-  root 'items#index'
-
+  
   resources :users, only: :show do
     member do
       get 'erase'
@@ -23,7 +21,15 @@ Rails.application.routes.draw do
       get 'done'
     end
   end
-  resources :items, only: :show
+  
+  resources :items do
+    collection do
+      get "set_item_photos"
+      get "set_parents"
+      get "set_children"
+      get "set_grandchildren"
+    end
+  end
 
   resources :items do
     resources :buyers, only: [:index] do
@@ -34,10 +40,12 @@ Rails.application.routes.draw do
     end
   end
 
+  
+
   resources :credit_cards, only: [:new, :show, :destroy] do
     collection do
       post 'pay', to: 'credit_cards#pay'
     end
   end
-  
+
 end

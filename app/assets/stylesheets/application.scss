@@ -1,5 +1,7 @@
 @import "reset";
 @import "config/colors";
+@import "modules/items_index";
+@import "modules/items_new";
 @import "modules/detail-table";
 @import "modules/header";
 @import "modules/footer";
@@ -11,3 +13,5 @@
 @import "modules/users";
 @import "modules/done";
 @import "credit_cards";
+@import "modules/category";
+

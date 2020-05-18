@@ -1,0 +1,2 @@
+module ItemPhotoHelper
+end

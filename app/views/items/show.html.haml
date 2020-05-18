@@ -10,16 +10,16 @@
         .item-information__link-box
           %ul
             %li
-              = link_to "商品を編集する", "#", class: "edit-btn"
+              = link_to "商品を編集する", edit_item_path(@item.id), class: "edit-btn"
             %li
-              = link_to "商品を削除する", "#s", class: "delete-btn"
+              = link_to "商品を削除する", item_path(@item.id), class: "delete-btn", method: :delete
       %ul
         %li.heading-photo
-          = image_tag @item.item_photos.find_by(params[:id]).image
+          = image_tag @item.item_photos.find_by(params[:id]).image.url
         %ul.photo-list
           %li.photo
             - @item.item_photos.each do |photo|
-              = image_tag photo.image
+              = image_tag photo.image.url
       .item-information__price
         = "#{@item.price}円"
       .item-information__tax-include
@@ -47,7 +47,7 @@
                 .purchase-btn__btn-text
                   購入へ進む
             - else
-              = link_to "#()商品編集ページ", class: "purchase-btn" do
+              = link_to "#()商品編集ページ", edit_item_path(@items.ids), class: "purchase-btn" do
                 .purchase-btn__btn-text
                   商品を編集する
           - else

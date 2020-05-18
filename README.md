@@ -76,8 +76,10 @@ Things you may want to cover:
 |Column|Type|Option|
 |------|----|------|
 |user_id|integer|foreign_key :true, null :false|
+
 |costomer_id|integer|null :false|
 |card_id|integer|null :false|
+
 
 ### Association
 - belongs_to :user
