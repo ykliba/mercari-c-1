@@ -47,7 +47,7 @@
                 .purchase-btn__btn-text
                   購入へ進む
             - else
-              = link_to "#()商品編集ページ", class: "purchase-btn" do
+              = link_to "#()商品編集ページ", edit_item_path(@items.ids), class: "purchase-btn" do
                 .purchase-btn__btn-text
                   商品を編集する
           - else

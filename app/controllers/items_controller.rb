@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :buy]
-  before_action :set_item, only: [:show, :edit, :buy, :pay]
+  before_action :set_item, only: [:show, :edit, :update, :buy, :pay]
   before_action :item_params, only: [:create, :update]
+ 
   
   def index
     @items = Item.order('id DESC').limit(4)
@@ -31,13 +32,12 @@ class ItemsController < ApplicationController
       redirect_to root_path
     else
       @parents = Category.all.order("id ASC").limit(13)
-      render :new
+      rnder new
     end
   end
 
   def edit
 
-    @item = Item.find(params[:id])
     @parents = Category.all.order("id ASC").limit(13)
   
     grandchild_category = @item.category
@@ -71,11 +71,10 @@ class ItemsController < ApplicationController
 
 
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to root_path
     else
-      render :edit
+      edit_item_path(@product)
     end
   end
     
@@ -85,26 +84,7 @@ class ItemsController < ApplicationController
     item.destroy
   end
 
-  
-    # imageLength = 0
-    # deleteImage = 0
-    # params[:item][:images_attributes].each do |p|
-    #   imageLength += 1
-    # end
-    # for num in 0..9
-    #   if params[:item][:item_photos_attributes][num.to_s] != nil
-    #     if params[:item][:imtem_photos_attributes][num.to_s][:_destroy] == "1"
-    #       deleteImage += 1
-    #     end
-    #   end
-    # end
-    # if @item.valid? && !@item.item_photos.empty? && imageLength != deleteImage
-    #   @item.update(item_params)
-    # else
-    #   redirect_to edit_item_path(@item)
-    # end
-  
-  
+
   def pay
     Payjp.api_key = Rails.application.credentials[:PAYJP][:PAYJP_PRIVATE_KEY]
     charge = Payjp::Charge.create(
@@ -122,7 +102,7 @@ class ItemsController < ApplicationController
   end
 
   def set_parents
-    @parents  = Category.where(ancestry: nil)
+    @parents = Category.where(ancestry: nil)
   end
 
   def set_children
@@ -132,19 +112,22 @@ class ItemsController < ApplicationController
   def set_grandchildren
     @grandchildren = Category.where(ancestry: params[:ancestry])
   end
-  
+
+
+  def set_item_photos
+    @item_photos = ItemPhoto.where(item_id: params[:id])
+  end
+
+
+
   private
 
   def set_item
     @item = Item.find(params[:id])
   end
 
-  def set_item_photos
-    @item_photos = ItemPhoto.where(item_id: params[:id])
-  end
-
   def item_params
-    params.require(:item).permit(:name, :explain, :status_id, :category_id, :shipping_fee_id, :shipping_area_id, :shipping_day_id, :shipping_way_id, :price, item_photos_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :explain, :status_id, :category_id, :shipping_fee_id, :shipping_area_id, :shipping_day_id, :shipping_way_id, :price, :remove_image, item_photos_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
 end
