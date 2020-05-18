@@ -17,22 +17,22 @@ class ItemsController < ApplicationController
     @parents = Category.all.order("id ASC").limit(13)
   end
 
-  def get_category_children
-    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
-  end
+  # def get_category_children
+  #   @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  # end
 
-  def get_category_grandchildren
-    @category_grandchildren = Category.find("#{params[:child_id]}").children
-  end
+  # def get_category_grandchildren
+  #   @category_grandchildren = Category.find("#{params[:child_id]}").children
+  # end
 
   def create
     @item = Item.new(item_params)
-    # binding.pry
+    
     if @item.save
       redirect_to root_path
     else
       @parents = Category.all.order("id ASC").limit(13)
-      render new
+      render "new"
     end
   end
 
@@ -74,7 +74,7 @@ class ItemsController < ApplicationController
     if @item.update(item_params)
       redirect_to root_path
     else
-      edit_item_path(@product)
+      edit_item_path(@item)
     end
   end
     
