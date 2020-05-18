@@ -29,6 +29,9 @@ Rails.application.routes.draw do
       get "set_children"
       get "set_grandchildren"
     end
+  end
+
+  resources :items do
     resources :buyers, only: [:index] do
       collection do
         get 'done', to: 'buyers#done'

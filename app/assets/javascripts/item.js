@@ -1,3 +1,4 @@
+
 $(document).on('turbolinks:load', function(){
   let index = [0,1,2,3,4,5,6,7,8,9];
   let request = $("#image-wrapper").attr("action");
@@ -42,10 +43,8 @@ $(document).on('turbolinks:load', function(){
     $(this).parent().remove();
     $(`#product_images_attributes_${targetIndex}_image`).remove();
     $(".flexbox").append(`<input class="file-field" type="file" name="item[item_photos_attributes][${targetIndex}][image]" id="item_item_photos_attributes_${targetIndex}_image">`);
-
-  })
-  
-  let buildImage = function(url){
+　　 })
+    let buildImage = function(url){
     if(index.length != 0){
       $(".new-wrapper__main__preview").append(`
         <div class="new-wrapper__main__preview__image" index=${index[0]}>
@@ -84,3 +83,5 @@ $(document).on('turbolinks:load', function(){
     buildImage(blob);
   })
 })
+
+
