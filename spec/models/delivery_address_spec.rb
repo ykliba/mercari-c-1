@@ -61,5 +61,23 @@ describe DeliveryAddress do
       delivery_address.valid?
       expect(delivery_address.errors[:postal_code]).to include("は7文字で入力してください")
     end
+
+    it " prefectureがない場合は登録できないこと" do
+      delivery_address = build(:delivery_address, prefecture: nil)
+      delivery_address.valid?
+      expect(delivery_address.errors[:prefecture]).to include("を入力してください")
+    end
+
+    it " cityがない場合は登録できないこと" do
+      delivery_address = build(:delivery_address, city: nil)
+      delivery_address.valid?
+      expect(delivery_address.errors[:city]).to include("を入力してください")
+    end
+    
+    it " addressがない場合は登録できないこと" do
+      delivery_address = build(:delivery_address, address: nil)
+      delivery_address.valid?
+      expect(delivery_address.errors[:address]).to include("を入力してください")
+    end
   end
 end
