@@ -27,7 +27,6 @@ $(document).on('turbolinks:load', function(){
             $(".select-parent").attr("name", "select-parent");
             $(".select-parent").css("margin-bottom", "10px");
             $("#category-select").append(`<select class="new-wrapper__main__input-select select-child" name="item[category_id]" id="item_category_id"><option value="">選択してください</option></select>`);
-    
             data.children.forEach(function(child){
               $(".select-child").append(`<option value="${child.id}">${child.name}</option>`);
             })
