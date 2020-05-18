@@ -7,25 +7,29 @@
     .sell-container
       = form_with model: @item, url: items_path, local: true do |f|
         .new-wrapper
-          .new-wrapper__main
-            .new-wrapper__main__title
-              出品画像
-              %span{class: "require"} 必須
-            .new-wrapper__main__text
-              最大10枚までアップロードできます
-            -# 編集箇所ここから
-            .flexbox
-              .new-wrapper__main__preview
-              %label{id: "image-wrapper", action: request.path}
-                .new-wrapper__main__image-field
-                  %i{class: "fas fa-camera"}
-                  .new-wrapper__main__image-field__text
-                  クリックしてファイルをアップロード
-                = f.fields_for :item_photos do |i|
-                  -# - binding.pry
-                  = i.file_field :image, {class: "file-field"}
-                  -# = image_tag i.object.image.url
-                  = i.check_box :_destroy, {class: "hidden"}
+          #request{action: request.path}
+            .new-wrapper__main
+              .new-wrapper__main__title
+                出品画像
+                %span{class: "require"} 必須
+              .new-wrapper__main__text
+                最大10枚までアップロードできます
+              
+              .flexbox
+                .new-wrapper__main__preview
+                %label{id: "image-wrapper", action: request.path}
+                  .new-wrapper__main__image-field
+                    %i{class: "fas fa-camera"}
+                    .new-wrapper__main__image-field__text
+                    クリックしてファイルをアップロード
+                  = f.fields_for :item_photos do |i|
+                    -# = image_tag i.object.image.url
+                    = i.file_field :image, {class: "file-field"}
+                    = i.check_box :_destroy, {class: "hidden"}
+                    -# .del 削除
+                    
+                  -# = i.check_box :_destroy, {class: "hidden"}
+                  
               
              
           
@@ -64,7 +68,7 @@
             .details-box
               .details-box__maintitle
                 商品の詳細
-              .new-wrapper__main__title
+              .cat-title
                 カテゴリー
                 %span{class: "require"} 必須
               #request{action: request.path}  

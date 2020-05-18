@@ -4,11 +4,11 @@ $(document).on('turbolinks:load', function(){
   if(request != undefined && request.indexOf("edit") != -1){
     $.ajax({
       url: "/items/set_item_photos",
-      data: {id:request.replace(/[^0-9]/g, '')},
+      data: {id: request.replace(/[^0-9]/g, '')},
       dataType: "json"
     }).done(function(data){
       data.item_photos.forEach(function(d){
-        buildItemPhoto(d.image.url);
+        buildImage(d.image.url);
       })
       $(".hidden").hide();
       $(".flexbox").on("click", ".delete-btn", function(){
@@ -18,6 +18,7 @@ $(document).on('turbolinks:load', function(){
     })
   }
   
+
   $(".flexbox").on("click", ".delete-btn", function(){
     let targetIndex = Number($(this).attr("index"));
     index.push(targetIndex);
@@ -39,15 +40,15 @@ $(document).on('turbolinks:load', function(){
     }
     $("#image-wrapper").attr("for",`item_item_photos_attributes_${targetIndex}_image`);
     $(this).parent().remove();
-    $(`#item_item_photos_attributes_${targetIndex}_image`).remove();
+    $(`#product_images_attributes_${targetIndex}_image`).remove();
     $(".flexbox").append(`<input class="file-field" type="file" name="item[item_photos_attributes][${targetIndex}][image]" id="item_item_photos_attributes_${targetIndex}_image">`);
 
   })
   
-  let buildItemPhoto = function(url){
+  let buildImage = function(url){
     if(index.length != 0){
       $(".new-wrapper__main__preview").append(`
-        <div class="new-wrapper__main__preview__image">
+        <div class="new-wrapper__main__preview__image" index=${index[0]}>
         <img class="new-wrapper__main__preview__image__img" src="${url}">
         <div class="delete-btn" index=${index[0]}><i class="far fa-times-circle"></i></div>
       `);
@@ -64,7 +65,9 @@ $(document).on('turbolinks:load', function(){
           <div class="new-wrapper__main__image-field" id="image-field-second">
             <i class="fas fa-camera"></i>
             <div class="new-wrapper__main__image-field__text">
-              クリックしてファイルをアップロード
+              ドラッグアンドドロップ
+              <br>
+              またはクリックしてファイルをアップロード
             </div>
           </div>
         `);
@@ -78,8 +81,6 @@ $(document).on('turbolinks:load', function(){
   }
   $(".flexbox").on("change", function(e){
     let blob = window.URL.createObjectURL(e.target.files[0]);
-    buildItemPhoto(blob);
+    buildImage(blob);
   })
-
-  
-});
+})
