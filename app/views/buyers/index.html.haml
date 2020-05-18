@@ -9,7 +9,7 @@
         = @item.name
       .amount
         .amount__shipping-fee
-          = @item.shipping_fee
+          = @item.shipping_fee.name
         .amount__price
           = "#{@item.price}円"
   .buy-form
@@ -32,7 +32,8 @@
       .text
         配送先
       .value
-        ユーザー情報の実装完了次第実装
+        - @item.user.delivery_addresses.each do |address|
+          = "郵便番号：" + "#{address.postal_code}"
     = form_tag(action: :pay, method: :post, class: "purchase-btn") do
       %button.purchase-btn__text{type:"submit"} 
         購入する
