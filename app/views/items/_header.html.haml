@@ -18,6 +18,7 @@
         .list-left__category
           #category-area
           - if @user.present?
+          - elsif @item.present?
           - else
             %i{class: "fas fa-list"}
             カテゴリー
