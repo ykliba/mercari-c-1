@@ -103,5 +103,6 @@ ActiveRecord::Schema.define(version: 2020_05_16_145132) do
   end
 
   add_foreign_key "delivery_addresses", "users"
+  add_foreign_key "item_photos", "items"
   add_foreign_key "personal_rightings", "users"
 end
