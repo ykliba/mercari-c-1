@@ -84,3 +84,4 @@ gem 'active_hash'
 gem "devise"
 gem "payjp"
 gem 'fog-aws'
+gem 'jquery-turbolinks'
