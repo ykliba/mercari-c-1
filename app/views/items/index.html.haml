@@ -112,7 +112,9 @@
           新規投稿商品
           .item-boxes
             - @items.each do |item|
+
               = link_to item_path(item.id), class: "item" do
+
                 - if item.buyer_id.present?
                   .item__sold
                     .item__sold__inner 
