@@ -16,13 +16,15 @@
       .list-left
         .list-left__category
           #category-area
-          - if @user.present?
-          - elsif @item.present?
-          - else
-            %i{class: "fas fa-list"}
-            カテゴリー
-            .category-box
-              = render "category"
+
+            - if @user.present?
+            - elsif @item.present?
+            - else
+              %i{class: "fas fa-list"}
+              カテゴリー
+              .category-box
+                = render "category"
+
           
             
         .list-left__brand
