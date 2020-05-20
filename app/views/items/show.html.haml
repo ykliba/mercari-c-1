@@ -10,7 +10,7 @@
         .item-information__link-box
           %ul
             %li
-              = link_to "商品を編集する", edit_item_path(@item.id), class: "edit-btn"
+              = link_to "商品を編集する", edit_item_path(@item.id), class: "edit-btn", data: {"turbolinks" => false}
             %li
               = link_to "商品を削除する", item_path(@item.id), class: "delete-btn", method: :delete
       %ul
@@ -47,7 +47,7 @@
                 .purchase-btn__btn-text
                   購入へ進む
             - else
-              = link_to "#()商品編集ページ", edit_item_path(@items.ids), class: "purchase-btn" do
+              = link_to "#()商品編集ページ", class: "purchase-btn" do
                 .purchase-btn__btn-text
                   商品を編集する
           - else
