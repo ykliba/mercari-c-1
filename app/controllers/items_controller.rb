@@ -9,6 +9,7 @@ class ItemsController < ApplicationController
   end
   
   def show
+    @item = Item.find(params[:id])
   end  
 
   def new
@@ -29,15 +30,16 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     # binding.pry
     if @item.save
-      redirect_to root_path
+      render :show
     else
       @parents = Category.all.order("id ASC").limit(13)
-      render new
+      redirect_to root_path
     end
   end
 
   def edit
-
+    @item = Item.find(params[:id])
+    # @item.item_photos.new
     @parents = Category.all.order("id ASC").limit(13)
   
     grandchild_category = @item.category
@@ -71,10 +73,12 @@ class ItemsController < ApplicationController
 
 
   def update
-    if @item.update(item_params)
+    item = Item.find(params[:id])
+    # binding.pry
+    if item.update(item_params)
       redirect_to root_path
     else
-      edit_item_path(@item)
+      render :edit
     end
   end
     
@@ -127,7 +131,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :explain, :status_id, :category_id, :shipping_fee_id, :shipping_area_id, :shipping_day_id, :shipping_way_id, :price, :remove_image, item_photos_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :explain, :status_id, :category_id, :shipping_fee_id, :shipping_area_id, :shipping_day_id, :shipping_way_id, :price, item_photos_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
 end
