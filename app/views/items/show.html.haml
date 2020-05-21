@@ -43,7 +43,7 @@
         - else
           - if user_signed_in?
             - if current_user.id != @item.user_id
-              = link_to edit_item_path(@item.id), class: "purchase-btn", data: {"turbolinks" => false}  do
+              = link_to item_buyers_path(@item.id), class: "purchase-btn" do
                 .purchase-btn__btn-text
                   購入へ進む
             - else
