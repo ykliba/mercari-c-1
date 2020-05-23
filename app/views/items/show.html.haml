@@ -48,7 +48,7 @@
                   購入へ進む
             - else
 
-              = link_to edit_item_path(@item.id), class: "purchase-btn" do
+              = link_to edit_item_path(@item.id), class: "purchase-btn", data: {"turbolinks" => false} do
 
                 .purchase-btn__btn-text
                   商品を編集する

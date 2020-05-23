@@ -3,27 +3,30 @@
     .header-logo
       = link_to image_tag("logo.png", class: "logo"), root_path
   
+  
+  
   .main
     .sell-container
-      = form_with model: @item, url: items_path, local: true do |f|
+      = form_with model:@item, local:true do |f|
         .new-wrapper
           .new-wrapper__main
             .new-wrapper__main__title
               出品画像
               %span{class: "require"} 必須
             .new-wrapper__main__text
-              最大10枚までアップロードできます
-            -# 編集箇所ここから
-            .flexbox
-              .new-wrapper__main__preview
-              %label{id: "image-wrapper", action: request.path}
-                .new-wrapper__main__image-field
-                  %i{class: "fas fa-camera"}
-                  .new-wrapper__main__image-field__text
-                  クリックしてファイルをアップロード
+              最大5枚までアップロードできます
+            .post__drop__box__container
+              .prev-content
+              .label-content
+                %label{for: "item_item_photos_attributes_0_image", class: "label-box", id: "label-box--0"}
+                  %pre.label-box__text-visible クリックしてファイルをアップロード
+              .hidden-content
                 = f.fields_for :item_photos do |i|
-                  = i.file_field :image, {class: "file-field"}
-            
+                  = i.file_field :image, class: "hidden-field"
+                  %input{class:"hidden-field", type: "file", name: "item[item_photos_attributes][1][image]", id: "item_item_photos_attributes_1_image" }
+                  %input{class:"hidden-field", type: "file", name: "item[item_photos_attributes][2][image]", id: "item_item_photos_attributes_2_image" }
+                  %input{class:"hidden-field", type: "file", name: "item[item_photos_attributes][3][image]", id: "item_item_photos_attributes_3_image" }
+                  %input{class:"hidden-field", type: "file", name: "item[item_photos_attributes][4][image]", id: "item_item_photos_attributes_4_image" }
         
         .items-section
           .items-main

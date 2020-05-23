@@ -5,28 +5,35 @@
   
   .main
     .sell-container
-      = form_with model: @item, url: item_path(@item.id), local: true do |f|
+      = form_with model:@item, local:true do |f|
         .new-wrapper
           .new-wrapper__main
             .new-wrapper__main__title
               出品画像
               %span{class: "require"} 必須
             .new-wrapper__main__text
-              最大10枚までアップロードできます
-              
-            .flexbox
-              .new-wrapper__main__preview
-                -# - @item.item_photos.each do |image|
-                -#   - if image.image.present?
-                -#     = image_tag image.image.url
-              %label{id: "image-wrapper", action: request.path}
-                .new-wrapper__main__image-field
-                  %i{class: "fas fa-camera"}
-                  .new-wrapper__main__image-field__text
-                  クリックしてファイルをアップロード
+              最大5枚までアップロードできます
+            .post__drop__box__container
+              .prev-content
+                - @item.item_photos.each do |item_photo|
+                  .preview-box
+                    .upper-box
+                      = image_tag item_photo.image.url, width: "112", height: "112", alt: "preview"
+                    .lower-box
+                      
+                      .delete-box
+                        .delete-btn
+                          %span 削除
+              .label-content
+                = f.label :"item_photos_attributes_#{@item.item_photos.length}_image", class: "label-box", id: "label-box--#{@item.item_photos.length}" do
+                  %pre.label-box__text-visible クリックしてファイルをアップロード
+              .hidden-content
                 = f.fields_for :item_photos do |i|
-                  = i.file_field :image, {class: "file-field"}
-                  = i.check_box :_destroy, {class: "hidden"}          
+                  = i.file_field :image, class: "hidden-field"
+                  = i.check_box:_destroy, class: "hidden-checkbox"
+                - @item.item_photos.length.upto(4) do |i|
+                  %input{name: "item[item_photos_attributes][#{i}][image]", id: "item_item_photos_attributes_#{i}_image", class:"hidden-field", type:"file"}
+          
         
         .items-section
           .items-main
@@ -168,4 +175,3 @@
 
 = javascript_include_tag 'category_edit.js'
 = javascript_include_tag 'item.js'
-= javascript_include_tag 'price.js'
