@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   belongs_to :brand
 
   include JpPrefecture
-  jp_prefecture :shipping_area
+  jp_prefecture :shipping_area_id
   
 
   extend ActiveHash::Associations::ActiveRecordExtensions
