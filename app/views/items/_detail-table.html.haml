@@ -36,6 +36,11 @@
       = link_to "#{@item.shipping_way.name}", "#", class: "shipping-area-link"
   %tr
     %th 
+      発送元地域
+    %td
+      = @item.prefecture.name
+  %tr
+    %th 
       発送日の目安
     %td 
       = @item.shipping_day.name

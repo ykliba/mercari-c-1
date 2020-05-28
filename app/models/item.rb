@@ -8,6 +8,9 @@ class Item < ApplicationRecord
   include JpPrefecture
   jp_prefecture :shipping_area_id
 
+  
+
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :shipping_day
   belongs_to_active_hash :shipping_fee
