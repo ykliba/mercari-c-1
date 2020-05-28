@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
       render :show
     else
       @parents = Category.all.order("id ASC").limit(13)
-      redirect_to root_path
+      redirect_to new_item_path
     end
   end
 
@@ -78,7 +78,7 @@ class ItemsController < ApplicationController
     if item.update(item_params)
       redirect_to root_path
     else
-      render :show
+      redirect_to edit_item_path(@item.id)
     end
   end
     
@@ -121,6 +121,7 @@ class ItemsController < ApplicationController
   def set_item_photos
     @item_photos = ItemPhoto.where(item_id: params[:id])
   end
+
 
 
 
